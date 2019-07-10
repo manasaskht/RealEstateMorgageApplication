@@ -1,0 +1,32 @@
+.full_width_bg {
+  /** Originally taken from https://www.w3schools.com/howto/howto_css_full_page.asp **/
+  /**Added black overlay to bg image **/
+  background: linear-gradient(rgba(0, 0, 0, .6), rgba(0, 0, 0, .6)), url('../../assets/images/couple-investment-key-1288482.jpg');
+  height: 100vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.main_message {
+  color: #ffffff;
+  text-align: center;
+  position: relative;
+  transform: translateY(50%);
+}
+
+.btn-primary-dark-red {
+  background-color: #660000;
+  border: solid 1px #660000;
+  color: white;
+  text-transform: none;
+}
+
+
+.btn-primary-gray {
+  background-color: #595959;
+  border: solid 1px #595959;
+  color: white;
+  text-transform: none;
+  margin-right: 10px;
+}

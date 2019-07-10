@@ -1,2 +1,2 @@
-# CloudGladiators_Project
+# cloud-gladiators
 

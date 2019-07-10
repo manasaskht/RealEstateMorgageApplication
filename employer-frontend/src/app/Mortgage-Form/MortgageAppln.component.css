@@ -1,0 +1,37 @@
+.form .container {
+  width: 60%;
+  margin-left: 5%;
+}
+
+#checkbox {
+  width: 20px;
+  height: 20px
+}
+
+.desc {
+  font-style: italic;
+}
+
+.heading {
+  text-align: center;
+  font-weight: bold;
+}
+
+.label1 {
+  text-align: center;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.label2 {
+  font-weight: bold;
+}
+
+.btn {
+  background-color: #476b6b;
+  color: aliceblue;
+  font-weight: bold;
+  align-content: center;
+  font-size: 15px;
+  margin-left: 45%;
+}

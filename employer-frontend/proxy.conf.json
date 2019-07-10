@@ -1,0 +1,7 @@
+{
+  "/api/*": {
+    "target": "https://a3-pets.azurewebsites.net",
+    "secure": false,
+    "changeOrigin": true
+  }
+}

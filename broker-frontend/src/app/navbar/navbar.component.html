@@ -1,0 +1,26 @@
+<nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #800000;">
+  <a class="navbar-brand" routerLink="/">Broker.com</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
+          aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="nav navbar-nav navbar-right">
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link" routerLink="/">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item" routerLinkActive="active" *ngIf="autheticated">
+        <a class="nav-link" routerLink="/">{{username}}</a>
+      </li>
+      <li class="nav-item" routerLinkActive="active" *ngIf="!autheticated">
+        <a class="nav-link" routerLink="/login">Log in</a>
+      </li>
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link" routerLink="/mortgage-application">Apply for a mortgage</a>
+      </li>
+      <li class="nav-item" routerLinkActive="active" *ngIf="autheticated">
+        <a class="nav-link" routerLink="/myapplications"> My applications</a>
+      </li>
+    </ul>
+  </div>
+</nav>

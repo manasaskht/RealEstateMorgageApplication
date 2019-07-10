@@ -1,0 +1,30 @@
+<app-navbar></app-navbar>
+<div class="jumbotron jumbotron-fluid" style="padding: 2rem 1rem; margin-bottom: 0px;">
+<h2>My applications</h2>
+</div>
+<table id="employeeTable">
+  <thead>
+  <tr class="header">
+    <th>Application ID</th>
+    <th>First Name</th>
+    <th>Last Name</th>
+    <th>Email</th>
+    <th>Company Name</th>
+    <th>Company Contact</th>
+    <th>Status</th>
+    <th></th>
+   </tr>
+</thead>
+<tbody>
+  <tr *ngFor="let appln of applications;">
+    <td>{{ appln.id }}</td>
+    <td>{{ appln.first_name }}</td>
+    <td>{{appln.last_name}}</td>
+    <td>{{appln.email_id}}</td>
+    <td>{{appln.company_name}}</td>
+    <td>{{appln.company_contact}}</td>
+    <td>{{appln.status}}</td>
+    <td><button class="btn btn-primary-dark-red btn-lg col-sm" [routerLink]="['/mortgageApplicationDetail', appln.id]">View Details</button></td>
+  </tr>
+</tbody>
+</table>
