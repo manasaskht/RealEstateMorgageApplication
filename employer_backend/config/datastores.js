@@ -52,11 +52,12 @@ module.exports.datastores = {
     // url: 'mysql://user:password@host:port/database',
 
     adapter: 'sails-mysql',
-    host: "cc-employer-db.mysql.database.azure.com",
+    host: "cloudgladiators6.mysql.database.azure.com",
     port: 3306,
-    user: "cc-team6@cc-employer-db",
-    password: "cloudgladiators_6",
+    user: "cloudgladiators@cloudgladiators6",
+    password: "Password@456",
     database: "employer_db"
+
 
   },
 

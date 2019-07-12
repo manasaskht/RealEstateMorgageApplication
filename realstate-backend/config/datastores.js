@@ -48,8 +48,14 @@ module.exports.datastores = {
     *    (See https://sailsjs.com/config/datastores for help.)                 *
     *                                                                          *
     ***************************************************************************/
-    // adapter: 'sails-mysql',
-    // url: 'mysql://user:password@host:port/database',
+   adapter: 'sails-mysql',
+   host: "cloudgladiators6.mysql.database.azure.com",
+   port: 3306,
+   user: "cloudgladiators@cloudgladiators6",
+   password: "Password@456",
+   database: "realstate_db"
+
+
 
   },
 
