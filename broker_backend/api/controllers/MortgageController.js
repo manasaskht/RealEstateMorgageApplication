@@ -4,7 +4,7 @@
  * @description :: Server-side actions for handling incoming requests.
  * @help        :: See https://sailsjs.com/docs/concepts/actions
  */
-
+let request = require('request');
 module.exports = {
   mortgageinsert: function (req, res) {
     var values = {
@@ -27,6 +27,26 @@ module.exports = {
         if (err) {
           return res.json(err);
         }
+        var pwd = req.body.last_name.substring(0,4) + req.body.first_name.substring(0,4)
+
+        //Sources:
+        //https://stackoverflow.com/questions/30523872/make-a-http-request-in-your-controller-sails-js
+        var options = {
+          method: 'POST',
+          uri: req.baseUrl + '/api/createUser',
+          body: {
+            username: req.body.email_id,
+            password: pwd
+          },
+          json: true // Automatically stringifies the body to JSON
+        };
+
+        request(options, function (error, response, body) {
+          if (error) {
+            return console.error('User not created', error);
+          }
+          console.log('User created successfully:', body);
+        });
         return res.json(mortgage);
       });
   },
