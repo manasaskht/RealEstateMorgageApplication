@@ -31,7 +31,9 @@ export class MorgageApplicationFormComponent implements OnInit {
       address: ['', [Validators.required]],
       companyName: ['', [Validators.required]],
       companyAddress: ['', [Validators.required]],
-      companyContact: ['', [Validators.required]]
+      companyContact: ['', [Validators.required]],
+      mortgageValue: [0, [Validators.required]],
+      msid: ['', [Validators.required]]
     });
   }
 
@@ -56,7 +58,9 @@ export class MorgageApplicationFormComponent implements OnInit {
       company_name: this.mortgageForm.get('companyName').value,
       company_address: this.mortgageForm.get('companyAddress').value,
       company_contact: this.mortgageForm.get('companyContact').value,
-      email_id: this.mortgageForm.get('email').value
+      email_id: this.mortgageForm.get('email').value,
+      mortgageValue: this.mortgageForm.get('mortgageValue').value,
+      msid: this.mortgageForm.get('msid').value
     };
 
     this.mortgageApplicationService.sendApplication(applicant)
