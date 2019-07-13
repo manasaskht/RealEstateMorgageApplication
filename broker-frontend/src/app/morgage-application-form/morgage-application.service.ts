@@ -12,7 +12,7 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class MortgageApplicationService {
-  apiURL = 'https://cc-broker-website.azurewebsites.net';
+  apiURL = 'http://localhost:1336';
 
   constructor(private httpClient: HttpClient) {
   }

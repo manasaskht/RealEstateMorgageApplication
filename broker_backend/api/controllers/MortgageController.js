@@ -16,6 +16,8 @@ module.exports = {
       company_address: req.body.company_address,
       company_contact: req.body.company_contact,
       email_id: req.body.email_id,
+      mortgage_value: req.body.mortgageValue,
+      msid: req.body.msid,
       status: "Pending"
     };
 
