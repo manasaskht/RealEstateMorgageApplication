@@ -1,0 +1,40 @@
+<p>pendingrequest works!</p>
+<div>
+    <table>
+            <thead>
+                    <tr>
+                        <th>MortID</th>
+                        <th>appraisalValue</th>
+                        <th>MisId</th>
+                        <th>insuredValue</th>
+                        <th>deductibleValue</th>
+                        <th>customerName</th>
+                    </tr>
+                </thead>
+        <tr *ngFor="let pendingrequest of pendingRequests">
+            <td>
+                {{pendingrequest.MortID}}
+            </td>
+            <td>
+                    {{pendingrequest.appraisalValue}}
+                </td>
+            <td>
+                {{pendingrequest.MisId}}
+            </td>
+            <td>
+                    {{pendingrequest.insuredValue}}
+            </td>
+            <td>
+                    {{pendingrequest.deductibleValue}}
+            </td>
+            <td>
+                    {{pendingrequest.customerName}}
+            </td>
+        </tr>
+    </table>
+</div>
+<!-- <div *ngFor="let pendingrequest of pendingRequests">
+    <label>Hello</label>
+    <label>{{pendingrequest.MortID}}</label>
+    <label>{{pendingrequest.appraisalValue}}</label>
+</div> -->

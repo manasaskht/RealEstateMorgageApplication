@@ -6,8 +6,7 @@ import { LoggingService } from '../common/logging.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css'],
-  providers: [LoggingService]
+  styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
   constructor(private loginService: LoginService, private router: Router, private loggingService: LoggingService) {

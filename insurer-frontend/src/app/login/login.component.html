@@ -1,1 +1,19 @@
-<p>login works!</p>
+<app-navbar></app-navbar>
+<div id="loginContainer">
+  <div class="row">
+    <label class="col-sm">Username</label>
+    <input type="text" class="col-sm" [(ngModel)] = 'username' placeholder="Enter your username">
+  </div>
+  <br />
+  <div class="row">
+    <label class="col-sm">Password</label>
+    <input type="text" class="col-sm" [(ngModel)] = 'password'  type="password"  placeholder="Enter your password">
+  </div>
+  <br />
+  <div class="row">
+    <button class="btn btn-primary-dark-red btn-lg col-sm" (click)='validateUser()'>Login</button>
+  </div>
+  <div class="alert alert-danger" *ngIf="showErrorMsg" style="margin: 10px" role="alert">
+    {{ errorMsg }}
+  </div>
+</div>
