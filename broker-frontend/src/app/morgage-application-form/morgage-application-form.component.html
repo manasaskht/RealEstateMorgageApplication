@@ -10,7 +10,27 @@
         <!--Form examples from https://mdbootstrap.com/docs/angular-->
 
         <form [formGroup]="mortgageForm" (ngSubmit)="onSubmit()">
-
+          <br>
+          <div class="form-group">
+            <h6 class="label1">Mortgage Details</h6>
+          </div>
+          <hr>
+          <div class="form-group">
+            <label class="label2">Mortgage Value</label>
+            <input type="number" formControlName="mortgageValue" class="form-control"
+                   [ngClass]="{ 'is-invalid': submitted && f.mortgageValue.errors }"/>
+            <div *ngIf="submitted && f.mortgageValue.errors" class="invalid-feedback">
+              <div *ngIf="f.mortgageValue.errors.required">Mortgage Value is required</div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="label2">MSID</label>
+            <input type="text" formControlName="msid" class="form-control"
+                   [ngClass]="{ 'is-invalid': submitted && f.msid.errors }"/>
+            <div *ngIf="submitted && f.msid.errors" class="invalid-feedback">
+              <div *ngIf="f.msid.errors.required">MSID is required</div>
+            </div>
+          </div>
           <br>
           <div class="form-group">
             <h6 class="label1">Personal Details</h6>
