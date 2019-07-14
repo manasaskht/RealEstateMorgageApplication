@@ -28,7 +28,6 @@ module.exports.routes = {
   'POST /api/mortgage/create': {controller: 'mortgage', action: 'mortgageinsert'},
   'POST /api/employeeinfo/create': {controller: 'employeeinfo', action: 'create'},
   'POST /api/employeeinfo/receive': {controller: 'employeeinfo', action: 'receiveInfoFromWorkload'},
-  'POST /api/insuranceinfo/create': 'InsuranceInfoController.create',
   'get /api/applicationDetail': 'MortgageController.fetchApplicationDetail',
   'get /api/mortgageapplications': 'MortgageController.fetchMortgageApplications',
   'post /api/logreqres': 'RequestresponselogController.logReqRes'
