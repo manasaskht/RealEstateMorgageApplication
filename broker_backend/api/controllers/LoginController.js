@@ -6,22 +6,34 @@
  */
 
 module.exports = {
-  validateLogin: function(req, res) {
-      var usrname = req.body.username;
-      var pwd = req.body.password;
-      UserLogin.find({username: usrname, password: pwd}).then((login) => {
-        if (!login) {
-          return res.notFound();
-        }
-        else if(login.length == 1) {
-            return res.json({ isValidUser: true});
-        }
-        return res.json(login);
-      })
+  validateLogin: function (req, res) {
+    var usrname = req.body.username;
+    var pwd = req.body.password;
+    UserLogin.find({ username: usrname, password: pwd }).then((login) => {
+      if (!login) {
+        return res.notFound();
+      }
+      else if (login.length == 1) {
+        return res.json({ isValidUser: true });
+      }
+      return res.json(login);
+    })
       .catch((err) => {
         return res.serverError(err);
       });
-  }
+  },
 
+  createUser: function (req, res) {
+    var usrname = req.body.username;
+    var pwd = req.body.password;
+    UserLogin.create({ username: usrname, password: pwd })
+      .fetch()
+      .exec(function (err, userlogin) {
+        if (err) {
+          return res.json(err);
+        }
+        return res.json(userlogin);
+      });
+  }
 };
 

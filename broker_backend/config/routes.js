@@ -24,6 +24,7 @@ module.exports.routes = {
   'get /api/employee/create': 'EmployeeController.create',
   'get /api/employees': 'EmployeeController.getAllEmployees',
   "post /api/validateUser": "LoginController.validateLogin",
+  'post /api/createUser': 'LoginController.createUser',
   'POST /api/mortgage/create': {controller: 'mortgage', action: 'mortgageinsert'},
   'POST /api/employeeinfo/create': {controller: 'employeeinfo', action: 'create'},
   'POST /api/employeeinfo/receive': {controller: 'employeeinfo', action: 'receiveInfoFromWorkload'},

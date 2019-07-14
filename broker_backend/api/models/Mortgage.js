@@ -42,6 +42,12 @@ module.exports = {
     status: {
       type: "string",
     },
+    mortgage_value: {
+      type: "number",
+    },
+    msid: {
+      type: "string",
+    },
     id: {
       type: "number",
       columnName: "application_id",
