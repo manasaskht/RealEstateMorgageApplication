@@ -36,7 +36,7 @@ export class LoginComponent implements OnInit {
     }
 
     let reappraiser = {
-      reappraiserID: this.appraiserLoginForm.get('username').value,
+      reappraiserid: this.appraiserLoginForm.get('username').value,
       password: this.appraiserLoginForm.get('password').value,
     };
 
