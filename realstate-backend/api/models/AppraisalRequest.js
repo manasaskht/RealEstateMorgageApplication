@@ -8,6 +8,14 @@
 module.exports = {
   attributes: {
     //holds the userid
+    custFirstName: {
+      type: "string",
+      required: true
+    },
+    custLastName: {
+      type: "string",
+      required: true
+    },
     MlsID: {
       type: "string",
       required: true,
@@ -18,24 +26,16 @@ module.exports = {
       required: true,
       unique: true
     },
-    custfirstName: {
-      type: "string",
-      required: true
-    },
-    custlastName: {
-      type: "string",
-      required: true
-    },
-    hasbeenappraised: {
+    hasBeenAppraised: {
       type: "string"
     },
-    apprfirstName: {
+    apprFirstName: {
       type: "string"
     },
-    apprlastName: {
+    apprLastName: {
       type: "string"
     },
-    appraisalvalue: {
+    appraisalValue: {
       type: "string"
     }
   }

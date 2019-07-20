@@ -11,10 +11,10 @@ module.exports = {
   //This function is to create a user
  appraisalrequest: function(req, res) {
     var values = {
+      custFirstName: req.body.custFirstName,
+      custLastName: req.body.custLastName,
       MlsID: req.body.MlsID,
-      MortID: req.body.MortID,
-      custfirstName: req.body.custfirstName,
-      custlastName: req.body.custlastName
+      MortID: req.body.MortID
     };
 
     //creates an employer
