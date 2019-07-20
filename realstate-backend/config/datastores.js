@@ -54,10 +54,5 @@ module.exports.datastores = {
    user: "cloudgladiators@cloudgladiators6",
    password: "Password@456",
    database: "realstate_db"
-
-
-
-  },
-
-
+   },
 };

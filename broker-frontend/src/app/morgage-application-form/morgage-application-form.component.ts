@@ -4,7 +4,7 @@ import {MortgageApplicationService} from "./morgage-application.service";
 import {Router} from "@angular/router";
 // ES6 Modules or TypeScript
 import Swal from 'sweetalert2';
-import { LoggingService } from '../common/logging.service';
+import { LoggingService } from 'broker-frontend/src/app/common/logging.service.ts';
 
 @Component({
   selector: 'app-morgage-application-form',

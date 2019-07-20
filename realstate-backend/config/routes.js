@@ -21,6 +21,18 @@ module.exports.routes = {
 
   '/': { view: 'pages/homepage' },
 
+  //Route to login
+  "post /api/reappraiser/login": "REAppraiserLoginController.login",
+
+  //This was done just to test whether authentication is working
+  "get /api/reappraiser/test": "REAppraiserLoginController.test",
+
+  //Route to create a broker
+  "post /api/reappraiser/signup": "REAppraiserLoginController.signup",
+
+  //Route to request an appraisal
+  "post /api/requestappraisal": "AppraisalRequestController.appraisalrequest",
+
 
   /***************************************************************************
   *                                                                          *

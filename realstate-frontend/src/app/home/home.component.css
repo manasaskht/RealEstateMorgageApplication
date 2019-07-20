@@ -1,0 +1,23 @@
+.full_width_bg {
+  /** Originally taken from https://www.w3schools.com/howto/howto_css_full_page.asp **/
+  /**Added black overlay to bg image **/
+  background: linear-gradient(rgba(0, 0, 0, .6), rgba(0, 0, 0, .6)),  url('../../assets/images/ballpen-blur-close-up-461077.jpg');
+  height: 100vh;
+  background-position: cente;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.main_message {
+  color: #ffffff;
+  text-align: center;
+  position: relative;
+  transform: translateY(50%);
+}
+
+.btn-primary-dark-blue {
+  background-color: #293d3d;
+  border: solid 1px #293d3d;
+  color:white;
+  text-transform: none;
+}

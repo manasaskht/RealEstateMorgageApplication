@@ -1,0 +1,52 @@
+<div class="container mt-85">
+  <div class="jumbotron">
+    <div class="container">
+      <h2 class="heading">Appraisal Form</h2>
+
+      <div class="form">
+        <!-- Angular 7 Reactive Form Validations at https://jasonwatmore.com-->
+
+        <!--Form examples from https://mdbootstrap.com/docs/angular-->
+
+        <form [formGroup]="requestAppraiserForm" (ngSubmit)="onSubmit()">
+          <br>
+          <div class="form-group">
+            <label class="label2">Customer First Name:</label>
+            <input type="text" formControlName="custFirstName" class="form-control"
+                   [ngClass]="{ 'is-invalid': submitted && f.custFirstName.errors }"/>
+            <div *ngIf="submitted && f.custFirstName.errors" class="invalid-feedback">
+              <div *ngIf="f.custFirstName.errors.required">First Name is required</div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="label2">Customer Last Name:</label>
+            <input type="text" formControlName="custLastName" class="form-control"
+                   [ngClass]="{ 'is-invalid': submitted && f.custLastName.errors }"/>
+            <div *ngIf="submitted && f.custLastName.errors" class="invalid-feedback">
+              <div *ngIf="f.custLastName.errors.required">Last name is required</div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="label2">House MlsID:</label>
+            <input type="text" formControlName="MlsID" class="form-control"
+                   [ngClass]="{ 'is-invalid': submitted && f.MlsID.errors }"/>
+            <div *ngIf="submitted && f.MlsID.errors" class="invalid-feedback">
+              <div *ngIf="f.MlsID.errors.required">House MlsID is required</div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="label2">Mortgage ID(MortID):</label>
+            <input type="text" formControlName="MortID" class="form-control"
+                   [ngClass]="{ 'is-invalid': submitted && f.MortID.errors }"/>
+            <div *ngIf="submitted && f.MortID.errors" class="invalid-feedback">
+              <div *ngIf="f.MortID.errors.required">Mortgage ID(MortID) is required</div>
+            </div>
+          </div>
+          <div class="form-group">
+            <button type="submit" class="btn">Submit</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
