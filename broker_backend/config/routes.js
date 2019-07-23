@@ -30,7 +30,8 @@ module.exports.routes = {
   'POST /api/employeeinfo/receive': {controller: 'employeeinfo', action: 'receiveInfoFromWorkload'},
   'get /api/applicationDetail': 'MortgageController.fetchApplicationDetail',
   'get /api/mortgageapplications': 'MortgageController.fetchMortgageApplications',
-  'post /api/logreqres': 'RequestresponselogController.logReqRes'
+  'post /api/logreqres': 'RequestresponselogController.logReqRes',
+  'post /api/insuranceInfo': 'InsuranceInfoController.create',
 
   /***************************************************************************
    *                                                                          *
