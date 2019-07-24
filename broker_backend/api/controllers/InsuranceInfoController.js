@@ -12,9 +12,10 @@ module.exports = {
         msid: req.body.msid,
         insuredValue: req.body.insuredValue,
         deductibleValue: req.body.deductibleValue,
-        customerName: req.body.customerName
+        customerName: req.body.customerName,
+        appraisalValue: req.body.appraisalValue
       };
-      UserLogin.create(insuranceInfo)
+      InsuranceInfo.create(insuranceInfo)
       .fetch()
       .exec(function (err, insInfo) {
         if (err) {
