@@ -21,6 +21,23 @@ module.exports = {
         if (err) {
           return res.json(err);
         }
+        //Sources:
+        //https://stackoverflow.com/questions/30523872/make-a-http-request-in-your-controller-sails-js
+        var options = {
+          method: 'POST',
+          uri: req.baseUrl + '/api/updateInsuranceInfoReference',
+          body: {
+            insuranceInfoID: insInfo.id,
+            applicationID: req.body.mortgageAppId
+          },
+          json: true // Automatically stringifies the body to JSON
+        };
+        request(options, function (error, response, body) {
+          if (error) {
+            return console.error('Error occurred while updating insurance information', error);
+          }
+          console.log('Insurance information updated successfully:', body);
+        });
         return res.json(insInfo);
       });
 

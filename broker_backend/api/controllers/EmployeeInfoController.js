@@ -23,11 +23,28 @@ module.exports = {
 
     EmployeeInfo.create(values)
       .fetch()
-      .exec(function (err, mortgage) {
+      .exec(function (err, empInfo) {
         if (err) {
           return res.json(err);
         }
 
+        //Sources:
+        //https://stackoverflow.com/questions/30523872/make-a-http-request-in-your-controller-sails-js
+        var reqOptions = {
+          method: 'POST',
+          uri: req.baseUrl + '/api/updateEmployeeInfoReference',
+          body: {
+            employeeInfoID: empInfo.id,
+            applicationID: req.body.mortgageAppId
+          },
+          json: true // Automatically stringifies the body to JSON
+        };
+        request(reqOptions, function (error, response, body) {
+          if (error) {
+            return console.error('Error occurred while updating employee information', error);
+          }
+          console.log('Employee information updated successfully:', body);
+        });
         //Sources:
         //https://stackoverflow.com/questions/30523872/make-a-http-request-in-your-controller-sails-js
         //https://www.npmjs.com/package/request-promise

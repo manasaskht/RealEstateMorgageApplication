@@ -83,5 +83,29 @@ module.exports = {
       .catch((err) => {
         return res.serverError(err);
       });
+  },
+
+updateEmployeeInfoReference: function (req, res) {
+  let baseQuery = "UPDATE broker_db.mortgage SET employeeInfo ='" + req.body.employeeInfoID +"' WHERE application_id =" + req.body.applicationID;
+  sails.log(baseQuery);
+
+  Mortgage.getDatastore().sendNativeQuery(baseQuery, function (err, rawResult) {
+    if (err) {
+      return res.serverError(err);
+    }
+    return res.send("Success");
+  })
+},
+
+  updateInsuranceInfoReference: function (req, res) {
+    let baseQuery = "UPDATE broker_db.mortgage SET insuranceInfo ='" + req.body.insuranceInfoID +"' WHERE application_id =" + req.body.applicationID;
+    sails.log(baseQuery);
+  
+    Mortgage.getDatastore().sendNativeQuery(baseQuery, function (err, rawResult) {
+      if (err) {
+        return res.serverError(err);
+      }
+      return res.send("Success");
+    });
   }
 };

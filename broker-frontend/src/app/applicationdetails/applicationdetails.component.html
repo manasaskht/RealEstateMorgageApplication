@@ -86,6 +86,39 @@
   </div>
   <br>
   <br>
+  <h5>
+    Mortgage details Details
+  </h5>
+  <br>
+  <div class="row">
+    <div class="col-sm">
+      <div class="row">
+        <div class="col-sm-4">
+          <label>MSID</label>
+        </div>
+        <div class="col-sm">
+          <label class="labelSpacing">{{mortgageModel.msid}}</label>
+        </div>
+        <div class="sol-sm">
+
+        </div>
+      </div>
+
+    </div>
+    <div class="col-sm">
+      <div class="row">
+        <div class="col-sm-5">
+          <label>Mortgage Value</label>
+        </div>
+        <div class="col-sm">
+          <label class="labelSpacing">{{mortgageModel.mortgage_value}}</label>
+        </div>
+        <div class="col-sm"></div>
+      </div>
+    </div>
+  </div>
+  <br>
+  <br>
   <h5>Company Details</h5>
   <br>
   <div class="row">
@@ -136,6 +169,129 @@
     </div>
   </div>
   <br>
+  <h5>Application Status: {{ !mortgageModel.employeeInfo || !mortgageModel.insuranceInfo ? 'Pending' : (mortgageModel.employeeInfo.status == 'Approved' && mortgageModel.insuranceInfo.status == 'Approved' ? 'Approved' : 'Rejected' )}}</h5>
+  <hr>
+  <br>
+  <br>
+  <h5>Information Provided by Employer</h5>
+  <br>
+  <div class="row">
+    <div class="col-sm">
+      <div class="row">
+        <div class="col-sm-3">
+          <label>Experience</label>
+        </div>
+        <div class="col-sm">
+          <label class="labelSpacing">{{mortgageModel.employeeInfo.experience}} years</label>
+        </div>
+        <div class="sol-sm">
+
+        </div>
+      </div>
+
+    </div>
+    <div class="col-sm">
+      <div class="row">
+        <div class="col-sm-3">
+          <label>Annual Salary</label>
+        </div>
+        <div class="col-sm">
+          <label class="labelSpacing">{{mortgageModel.employeeInfo.salary}}</label>
+        </div>
+        <div class="col-sm"></div>
+      </div>
+    </div>
+  </div>
+  <br>
+  <div class="row">
+    <div class="col-sm">
+      <div class="row">
+        <div class="col-sm-3">
+          <label>Address</label>
+        </div>
+        <div class="col-sm">
+          <label class="labelSpacing">{{mortgageModel.employeeInfo.status}}</label>
+        </div>
+        <div class="sol-sm">
+
+        </div>
+      </div>
+
+    </div>
+    <div class="col-sm">
+
+    </div>
+  </div>
+  <br>
+  <h5>Information Provided by Insurance Company</h5>
+  <br>
+  <div class="row">
+    <div class="col-sm">
+      <div class="row">
+        <div class="col-sm-3">
+          <label>Insured Value</label>
+        </div>
+        <div class="col-sm">
+          <label class="labelSpacing">{{mortgageModel.insuranceInfo.insuredValue}} years</label>
+        </div>
+        <div class="sol-sm">
+
+        </div>
+      </div>
+
+    </div>
+    <div class="col-sm">
+      <div class="row">
+        <div class="col-sm-3">
+          <label>Deductible Value</label>
+        </div>
+        <div class="col-sm">
+          <label class="labelSpacing">{{mortgageModel.insuranceInfo.deductibleValue}}</label>
+        </div>
+        <div class="col-sm"></div>
+      </div>
+    </div>
+  </div>
+  <br>
+  <div class="row">
+    <div class="col-sm">
+      <div class="row">
+        <div class="col-sm-3">
+          <label>Appraisal Value</label>
+        </div>
+        <div class="col-sm">
+          <label class="labelSpacing">{{mortgageModel.insuranceInfo.appraisalValue}}</label>
+        </div>
+        <div class="sol-sm">
+
+        </div>
+      </div>
+
+    </div>
+    <div class="col-sm">
+
+    </div>
+  </div>
+  <br>
+  <div class="row">
+    <div class="col-sm">
+      <div class="row">
+        <div class="col-sm-3">
+          <label>Status</label>
+        </div>
+        <div class="col-sm">
+          <label class="labelSpacing">{{mortgageModel.insuranceInfo.status}}</label>
+        </div>
+        <div class="sol-sm">
+
+        </div>
+      </div>
+
+    </div>
+    <div class="col-sm">
+
+    </div>
+  </div>
   <div class="row">
     <div class="col text-center">
       <button class="btn btn-info" [routerLink]="['/myapplications']">Back to list</button>
