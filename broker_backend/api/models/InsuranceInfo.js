@@ -13,6 +13,7 @@ module.exports = {
     msid: { type: 'string', required: true },
     insuredValue: { type: 'number', required: true },
     deductibleValue: { type: 'number', required: true },
+    appraisalValue: { type: 'number', required: true },
     customerName: { type: 'string', required: true }
     //  ╔═╗╦═╗╦╔╦╗╦╔╦╗╦╦  ╦╔═╗╔═╗
     //  ╠═╝╠╦╝║║║║║ ║ ║╚╗╔╝║╣ ╚═╗

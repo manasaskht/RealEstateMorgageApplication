@@ -52,6 +52,12 @@ module.exports = {
       type: "number",
       columnName: "application_id",
       autoIncrement: true
+    },
+    employeeInfo: {
+      model: 'EmployeeInfo'
+    },
+    insuranceInfo: {
+      model: 'InsuranceInfo'
     }
     //  ╔═╗╦═╗╦╔╦╗╦╔╦╗╦╦  ╦╔═╗╔═╗
     //  ╠═╝╠╦╝║║║║║ ║ ║╚╗╔╝║╣ ╚═╗
