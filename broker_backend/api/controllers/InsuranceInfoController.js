@@ -23,7 +23,22 @@ module.exports = {
         }
         return res.json(insInfo);
       });
-  }
+
+  },
+  updateInsuranceinfo: function (req, res) {
+    let baseQuery = "UPDATE broker_db.insuranceinfo SET status ='Approved' WHERE id =" + req.body.id;
+    sails.log(baseQuery);
+  
+    Insurancequote.getDatastore().sendNativeQuery(baseQuery, function (err, rawResult) {
+      if (err) {
+        return res.serverError(err);
+      }
+     // let results = JSON.parse(JSON.stringify(rawResult.rows))
+      return res.send("Success");
+    });
+  
+  
+  },
 
 };
 
