@@ -37,6 +37,35 @@ fetchAllPendingRequest : function (req, res)
     function(result) { return res.json(result)}
     ).catch( function(e) {return e} );   
 },  
+fetchInsuranceDetailsByMortgageId: function(req, res)
+{
+    let mortgageId = req.param('mortgageId');
+    var searchQuery = {};
+    searchQuery['MortID'] = mortgageId;
+    allRecord = Insurancequote.findOne(searchQuery)
+    .then(
+      function (result) {
+        return res.json(result)
+      }
+    )
+    .catch(function (e) {
+      return e
+    });
 
+},
+updateInsuranceDetails: function (req, res) {
+  let baseQuery = "UPDATE insurer_db.insurancequote SET insuredValue ='" + req.body.insuredValue +"',deductibleValue='" + req.body.deductibleValue +"' WHERE MortID =" + req.body.MortID;
+  sails.log(baseQuery);
+
+  Insurancequote.getDatastore().sendNativeQuery(baseQuery, function (err, rawResult) {
+    if (err) {
+      return res.serverError(err);
+    }
+   // let results = JSON.parse(JSON.stringify(rawResult.rows))
+    return res.send("Success");
+  });
+
+
+},
 };
 

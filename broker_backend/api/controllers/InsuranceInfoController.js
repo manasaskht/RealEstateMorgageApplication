@@ -15,7 +15,7 @@ module.exports = {
         customerName: req.body.customerName,
         appraisalValue: req.body.appraisalValue
       };
-      UserLogin.create(insuranceInfo)
+      InsuranceInfo.create(insuranceInfo)
       .fetch()
       .exec(function (err, insInfo) {
         if (err) {

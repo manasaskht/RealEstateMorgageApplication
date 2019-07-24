@@ -7,13 +7,15 @@ import { LoginComponent } from './login/login.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { PendingrequestComponent } from './pendingrequest/pendingrequest.component'; 
+import { PendingrequestComponent } from './pendingrequest/pendingrequest.component';
+import { GenerateQuoteComponent } from './generate-quote/generate-quote.component'; 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     NavbarComponent,
-    PendingrequestComponent
+    PendingrequestComponent,
+    GenerateQuoteComponent
   ],
   imports: [
     BrowserModule,

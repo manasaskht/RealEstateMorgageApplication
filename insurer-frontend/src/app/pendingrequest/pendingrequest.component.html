@@ -1,34 +1,41 @@
 <p>pendingrequest works!</p>
 <div>
     <table>
-            <thead>
-                    <tr>
-                        <th>MortID</th>
-                        <th>appraisalValue</th>
-                        <th>MisId</th>
-                        <th>insuredValue</th>
-                        <th>deductibleValue</th>
-                        <th>customerName</th>
-                    </tr>
-                </thead>
-        <tr *ngFor="let pendingrequest of pendingRequests">
+        <thead>
+            <tr>
+                <th>i</th>
+                <th>MortID</th>
+                <th>appraisal Value</th>
+                <th>MisId</th>
+                <th>insured Value</th>
+                <th>deductible Value</th>
+                <th>customer Name</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tr *ngFor="let pendingrequest of pendingRequests; let i = index">
+            <td>{{i}}</td>
             <td>
                 {{pendingrequest.MortID}}
             </td>
             <td>
-                    {{pendingrequest.appraisalValue}}
-                </td>
+                {{pendingrequest.appraisalValue}}
+            </td>
             <td>
                 {{pendingrequest.MisId}}
             </td>
             <td>
-                    {{pendingrequest.insuredValue}}
+                {{pendingrequest.insuredValue}}
             </td>
             <td>
-                    {{pendingrequest.deductibleValue}}
+                {{pendingrequest.deductibleValue}}
             </td>
             <td>
-                    {{pendingrequest.customerName}}
+                {{pendingrequest.customerName}}
+            </td>
+            <td>
+            <button id="btnGenerateQuote" [routerLink]="['/generateQuote', pendingrequest.MortID]">
+                Generate Quote</button>
             </td>
         </tr>
     </table>

@@ -1,6 +1,6 @@
 export class insuranceDetails 
 {
-    MortID : number;
+    MortID : string;
     appraisalValue :number;
     MisId : string;
     insuredValue : number;
