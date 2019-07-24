@@ -29,8 +29,8 @@ public sendInsuranceDetailsToBroker(insuranceDet : Object)
 {
     return this.httpClient.post<Boolean>(`${this.apiURL1}/api/insuranceInfo`, insuranceDet, httpOptions) 
 }
-public updateInsuranceDetails(insuranceDet : Object)
+public updateInsuranceDetails(updatedInsuranceDet : Object)
 {
-    return this.httpClient.put<Boolean>(`${this.apiURL1}/api/insuranceInfo`, insuranceDet, httpOptions) 
+    return this.httpClient.post<Boolean>(`${this.apiURL}/api/updateInsuranceDetails`, updatedInsuranceDet, httpOptions) 
 }
 }

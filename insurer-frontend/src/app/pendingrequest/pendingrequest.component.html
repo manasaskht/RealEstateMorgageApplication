@@ -1,20 +1,24 @@
-<p>pendingrequest works!</p>
-<div>
+<app-navbar></app-navbar>
+<div class="jumbotron jumbotron-fluid" style="padding: 2rem 1rem; margin-bottom: 0px;">
+</div>
+<div class="container">
     <table>
         <thead>
-            <tr>
-                <th>i</th>
+            <tr class="header">
+                
                 <th>MortID</th>
                 <th>appraisal Value</th>
                 <th>MisId</th>
                 <th>insured Value</th>
                 <th>deductible Value</th>
                 <th>customer Name</th>
+                <th>Status</th>
                 <th>Actions</th>
             </tr>
         </thead>
+        <tbody>
         <tr *ngFor="let pendingrequest of pendingRequests; let i = index">
-            <td>{{i}}</td>
+            
             <td>
                 {{pendingrequest.MortID}}
             </td>
@@ -34,10 +38,15 @@
                 {{pendingrequest.customerName}}
             </td>
             <td>
-            <button id="btnGenerateQuote" [routerLink]="['/generateQuote', pendingrequest.MortID]">
+                {{pendingrequest.status}}
+            </td>
+            <td>
+            <button id="btnGenerateQuote" [routerLink]="['/generateQuote', pendingrequest.MortID]"
+            [disabled] = "pendingrequest.status =='completed'? true:false">
                 Generate Quote</button>
             </td>
         </tr>
+    </tbody>
     </table>
 </div>
 <!-- <div *ngFor="let pendingrequest of pendingRequests">
