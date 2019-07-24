@@ -8,9 +8,9 @@
     <th>Application ID</th>
     <th>First Name</th>
     <th>Last Name</th>
-    <th>Email</th>
-    <th>Company Name</th>
-    <th>Company Contact</th>
+    <!-- <th>Company Name</th> -->
+    <th>MSID</th>
+    <th>Mortgage Value</th>
     <th>Status</th>
     <th></th>
    </tr>
@@ -20,9 +20,9 @@
     <td>{{ appln.id }}</td>
     <td>{{ appln.first_name }}</td>
     <td>{{appln.last_name}}</td>
-    <td>{{appln.email_id}}</td>
-    <td>{{appln.company_name}}</td>
-    <td>{{appln.company_contact}}</td>
+    <!-- <td>{{appln.company_name}}</td> -->
+    <td>{{appln.msid}}</td>
+    <td>{{appln.mortgage_value}}</td>
     <td>{{appln.status}}</td>
     <td><button class="btn btn-primary-dark-red btn-lg col-sm" [routerLink]="['/mortgageApplicationDetail', appln.id]">View Details</button></td>
   </tr>

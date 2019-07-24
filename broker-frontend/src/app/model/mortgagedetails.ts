@@ -1,3 +1,6 @@
+import { InsuranceInfo } from './insuranceInfo';
+import { EmployeeInfo } from './employeeInfo';
+
 export class mortgagedetails {
   application_id: string;
   first_name: string;
@@ -9,4 +12,8 @@ export class mortgagedetails {
   email_id: string;
   company_address: string;
   status: string;
+  msid: string;
+  mortgage_value: number;
+  insuranceInfo: InsuranceInfo;
+  employeeInfo: EmployeeInfo;
 }

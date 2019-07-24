@@ -58,6 +58,8 @@ module.exports = {
     var searchQuery = {};
     searchQuery['id'] = paramValue;
     allRecord = Mortgage.findOne(searchQuery)
+    .populate('employeeInfo')
+    .populate('insuranceInfo')
       .then(
         function (result) {
           return res.json(result)
