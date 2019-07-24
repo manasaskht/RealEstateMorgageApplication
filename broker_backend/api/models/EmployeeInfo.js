@@ -17,7 +17,7 @@ module.exports = {
     emailId: {type: 'string', required: true},
     experience: {type: 'number', required: true},
     salary: {type: 'number', required: true},
-
+    status: {type:'string'}
     //  ╔═╗╦═╗╦╔╦╗╦╔╦╗╦╦  ╦╔═╗╔═╗
     //  ╠═╝╠╦╝║║║║║ ║ ║╚╗╔╝║╣ ╚═╗
     //  ╩  ╩╚═╩╩ ╩╩ ╩ ╩ ╚╝ ╚═╝╚═╝

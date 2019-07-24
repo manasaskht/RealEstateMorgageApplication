@@ -32,7 +32,8 @@ module.exports.routes = {
   'get /api/mortgageapplications': 'MortgageController.fetchMortgageApplications',
   'post /api/logreqres': 'RequestresponselogController.logReqRes',
   'post /api/insuranceInfo': 'InsuranceInfoController.create',
-
+  'post /api/updateEmployeeInfo': 'EmployeeInfoController.updateEmployeeInfo',
+  'post /api/updateInsuranceinfo': 'InsuranceInfoController.updateInsuranceinfo',
   /***************************************************************************
    *                                                                          *
    * More custom routes here...                                               *
