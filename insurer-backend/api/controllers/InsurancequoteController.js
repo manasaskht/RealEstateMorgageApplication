@@ -16,7 +16,8 @@ insertInsuranceDetails: function(req, res)
         MisId : req.body.MisId,
         insuredValue: req.body.insuredValue,
         deductibleValue: req.body.deductibleValue,
-        customerName: req.body.customerName 
+        customerName: req.body.customerName,
+        status:'Pending' 
     };
 Insurancequote.create(values)
 .fetch()
@@ -54,7 +55,7 @@ fetchInsuranceDetailsByMortgageId: function(req, res)
 
 },
 updateInsuranceDetails: function (req, res) {
-  let baseQuery = "UPDATE insurer_db.insurancequote SET insuredValue ='" + req.body.insuredValue +"',deductibleValue='" + req.body.deductibleValue +"' WHERE MortID =" + req.body.MortID;
+  let baseQuery = "UPDATE insurer_db.insurancequote SET insuredValue ='" + req.body.insuredValue +"',deductibleValue='" + req.body.deductibleValue +"',status='completed' WHERE MortID =" + req.body.MortID;
   sails.log(baseQuery);
 
   Insurancequote.getDatastore().sendNativeQuery(baseQuery, function (err, rawResult) {

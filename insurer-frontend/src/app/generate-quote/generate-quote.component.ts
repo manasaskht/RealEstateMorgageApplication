@@ -39,5 +39,10 @@ export class GenerateQuoteComponent implements OnInit {
     }).subscribe( data =>{
       console.log(data);
     });
+    this._generateQuoteService.updateInsuranceDetails({insuredValue:this.insuredValue,deductibleValue:this.deductibleValue,MortID:this.insuranceModel.MortID}
+      ).subscribe(data =>
+        {
+          console.log(data);
+        })
   }
 }

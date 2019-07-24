@@ -27,7 +27,8 @@ module.exports = {
     MisId: {type: 'string', required: true},
     insuredValue: {type: 'number'},
     deductibleValue: {type: 'number'},
-    customerName: {type: 'string', required: true}
+    customerName: {type: 'string', required: true},
+    status:{type:'string'}
   },
 
 };
