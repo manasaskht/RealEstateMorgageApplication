@@ -91,7 +91,7 @@ module.exports = {
 
   },
   updateEmployeeInfo: function (req, res) {
-    let baseQuery = "UPDATE broker_db.employeeinfo SET status ='" + req.body.decision +"' WHERE id =" + req.body.id;
+    let baseQuery = "CALL updateMortgageStatusOnEmpInfoUpdate(" + req.body.applicationID + ", " + req.body.id + ", '" + req.body.decision + "');";
     sails.log(baseQuery);
   
     EmployeeInfo.getDatastore().sendNativeQuery(baseQuery, function (err, rawResult) {
