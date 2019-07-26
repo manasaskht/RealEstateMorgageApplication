@@ -43,7 +43,7 @@ module.exports = {
 
   },
   updateInsuranceinfo: function (req, res) {
-    let baseQuery = "UPDATE broker_db.insuranceinfo SET status ='"+ req.body.decision + "' WHERE id =" + req.body.id;
+    let baseQuery = "CALL updateMortgageStatusOnInsInfoUpdate(" + req.body.applicationID + ", " + req.body.id + ", '" + req.body.decision + "');";
     sails.log(baseQuery);
   
     InsuranceInfo.getDatastore().sendNativeQuery(baseQuery, function (err, rawResult) {
