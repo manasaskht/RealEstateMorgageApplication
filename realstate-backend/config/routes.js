@@ -32,7 +32,10 @@ module.exports.routes = {
 
   //Route to request an appraisal
   "post /api/requestappraisal": "AppraisalRequestController.appraisalrequest",
-
+//pending requests
+  "get /api/getpendingRequests": "PendingRequestController.fetchAllPendingRequest",
+  "post /api/updateAppraisalDetails" : "PendingRequestController.updateAppraisalDetails",
+  "get /api/quoteDetailsById/:mortgageId": "PendingRequestController.fetchAppraisalDetailsByMortgageId",
 
   /***************************************************************************
   *                                                                          *
