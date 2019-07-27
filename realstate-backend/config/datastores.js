@@ -48,7 +48,7 @@ module.exports.datastores = {
     *    (See https://sailsjs.com/config/datastores for help.)                 *
     *                                                                          *
     ***************************************************************************/
-   adapter: 'sails-mysql',
+    adapter: 'sails-mysql',
    host: "clouddb623.mysql.database.azure.com",
    port: 3306,
    user: "ponnuru@clouddb623",

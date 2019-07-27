@@ -1,0 +1,32 @@
+<app-navbar></app-navbar>
+<div class="jumbotron jumbotron-fluid" style="padding: 2rem 1rem; margin-bottom: 0px;">
+</div>
+<div class="container">
+    <table>
+        <thead>
+            <tr class="header">
+                <th>Name</th>
+                <th>MortID</th>
+                <th>MLSId</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let pendingrequest of pendingRequests">
+            <td>
+                {{pendingrequest.Name}}
+            </td> 
+            <td>
+                {{pendingrequest.MortID}}
+            </td>
+            <td>
+                {{pendingrequest.M1sID}}
+            </td>
+            <td>
+            <button id="AppraisalQuote" [routerLink]="['/generateAppraisalQuote', pendingrequest.MortID]">
+                Quote Appraisal</button>
+            </td>
+        </tr>
+    </tbody>
+    </table>
+</div>

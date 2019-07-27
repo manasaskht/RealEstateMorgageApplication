@@ -11,15 +11,17 @@ module.exports = {
   //This function is to create a user
  appraisalrequest: function(req, res) {
     var values = {
-      custFirstName: req.body.custFirstName,
-      custLastName: req.body.custLastName,
-      MlsID: req.body.MlsID,
-      MortID: req.body.MortID
+      Name: req.body.Name,
+      M1sID: req.body.M1sID,
+      MortID: req.body.MortID,
+      Status: 'pending'
     };
 
     //creates an employer
+    //sails.log(values);
     AppraisalRequest.create(values)
 	.exec(function(err, broker) {
+    //sails.log(values);
       if (err) {
         return res.json(err);
       }

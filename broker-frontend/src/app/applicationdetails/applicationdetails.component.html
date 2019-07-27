@@ -169,14 +169,15 @@
     </div>
   </div>
   <br>
-  <h5>Application Status: {{ !mortgageModel.status }} </h5>
+  <h5>Application Decision Details: {{ mortgageModel.status }} </h5>
     <!-- employeeInfo || !mortgageModel.insuranceInfo ? 'Pending' : (mortgageModel.employeeInfo.status == 'Approved' && mortgageModel.insuranceInfo.status == 'Approved' ? 'Approved' : 'Rejected' )}}</h5> -->
   <hr>
   <br>
   <br>
   <h5>Information Provided by Employer - {{ mortgageModel.employeeInfo ? mortgageModel.employeeInfo.status : 'Awaiting for Information' }}</h5>
+  <hr>
   <br>
-  <div class="row"  *ngIf="mortgageModel.employeeInfo">
+  <div class="row" *ngIf="mortgageModel.employeeInfo">
     <div class="col-sm">
       <div class="row">
         <div class="col-sm-3">
@@ -204,11 +205,11 @@
     </div>
   </div>
   <br>
-  <div class="row">
+  <!-- <div class="row">
     <div class="col-sm">
       <div class="row">
         <div class="col-sm-3">
-          <label>Address</label>
+          <label>Decision</label>
         </div>
         <div class="col-sm">
           <label class="labelSpacing">{{mortgageModel.employeeInfo.status}}</label>
@@ -222,11 +223,13 @@
     <div class="col-sm">
 
     </div>
-  </div>
+  </div> -->
   <br>
-  <h5>Information Provided by Insurance Company - {{ mortgageModel.insuranceInfo ? mortgageModel.insuranceInfo.status : 'Awaiting for Information' }}</h5>
+  <h5>Information Provided by Insurance Company - {{ mortgageModel.insuranceInfo != null ? mortgageModel.insuranceInfo.status : 'Awaiting for Information' }}</h5>
+  <hr>
   <br>
-  <div class="row" *ngIf="mortgageModel.insuranceInfo">
+  <div *ngIf="mortgageModel.insuranceInfo">
+  <div class="row">
     <div class="col-sm">
       <div class="row">
         <div class="col-sm-3">
@@ -291,6 +294,7 @@
 
     </div>
   </div>
+</div>
   <br>
   <br>
   <div class="row">

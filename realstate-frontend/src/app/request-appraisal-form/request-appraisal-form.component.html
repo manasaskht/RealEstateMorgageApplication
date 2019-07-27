@@ -11,19 +11,11 @@
         <form [formGroup]="requestAppraiserForm" (ngSubmit)="onSubmit()">
           <br>
           <div class="form-group">
-            <label class="label2">Customer First Name:</label>
-            <input type="text" formControlName="custFirstName" class="form-control"
-                   [ngClass]="{ 'is-invalid': submitted && f.custFirstName.errors }"/>
-            <div *ngIf="submitted && f.custFirstName.errors" class="invalid-feedback">
-              <div *ngIf="f.custFirstName.errors.required">First Name is required</div>
-            </div>
-          </div>
-          <div class="form-group">
-            <label class="label2">Customer Last Name:</label>
-            <input type="text" formControlName="custLastName" class="form-control"
-                   [ngClass]="{ 'is-invalid': submitted && f.custLastName.errors }"/>
-            <div *ngIf="submitted && f.custLastName.errors" class="invalid-feedback">
-              <div *ngIf="f.custLastName.errors.required">Last name is required</div>
+            <label class="label2"> Name:</label>
+            <input type="text" formControlName="Name" class="form-control"
+                   [ngClass]="{ 'is-invalid': submitted && f.Name.errors }"/>
+            <div *ngIf="submitted && f.Name.errors" class="invalid-feedback">
+              <div *ngIf="f.Name.errors.required"> Name is required</div>
             </div>
           </div>
           <div class="form-group">
