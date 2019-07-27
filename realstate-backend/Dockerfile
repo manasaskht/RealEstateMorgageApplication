@@ -2,10 +2,10 @@
 FROM node:8.11.4
 RUN npm install sails -g
 ENV NODE_ENV development
-WORKDIR Users/Genny/Documents/Dalhousie/Summer/Cloud/assignment5/cloud-gladiators/broker_backend
+WORKDIR S:\Study\Cloud\Project\Master\realstate-backend
 COPY ["package.json", "package-lock.json","./"]
 RUN npm install
 COPY . .
 # replace this with your application's default port
-EXPOSE 1336
+EXPOSE 1339
 CMD sails lift

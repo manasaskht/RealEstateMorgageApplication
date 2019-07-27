@@ -2,7 +2,7 @@
 FROM node:8.11.4
 RUN npm install sails -g
 ENV NODE_ENV development
-WORKDIR Users/Genny/Documents/Dalhousie/Summer/Cloud/assignment5/cloud-gladiators/employer_backend
+WORKDIR S:\Study\Cloud\Project\Master\employer_backend
 COPY ["package.json", "package-lock.json","./"]
 RUN npm install
 COPY . .
