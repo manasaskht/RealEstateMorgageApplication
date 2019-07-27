@@ -35,7 +35,7 @@ module.exports = {
           uri: req.baseUrl + '/api/updateEmployeeInfoReference',
           body: {
             employeeInfoID: empInfo.id,
-            applicationID: req.body.mortgageAppId
+            applicationID: req.body.applicationID
           },
           json: true // Automatically stringifies the body to JSON
         };
