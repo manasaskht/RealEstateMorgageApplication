@@ -1,0 +1,22 @@
+table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  table th, table td {
+    padding: 12px;
+    text-align: left;
+  }
+  
+  table tr {
+    border-bottom: 1px solid #ddd;
+  }
+  
+  table tr.header {
+    background-color: gray;
+    color: white;
+  }
+  
+  table tbody tr:hover {
+    background-color:  #c58f8f;
+  }

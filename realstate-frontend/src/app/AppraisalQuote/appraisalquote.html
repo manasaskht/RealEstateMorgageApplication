@@ -1,0 +1,65 @@
+<app-navbar></app-navbar>
+<div class="container" style="margin-top: 30px;">
+    <div>
+        <h5>
+            Appraisal Details
+        </h5>
+        <hr>
+        <br>
+    </div>
+    <div class="row">
+        <div class="col-sm">
+            <label>Customer Name</label>
+        </div>
+        <div class="col-sm">
+            <label>{{AppraisalModel[0].Name}}</label>
+        </div>
+        <div class="col-sm">
+
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-sm">
+            <label>Mortgage ID</label>
+        </div>
+        <div class="col-sm">
+            <label>{{AppraisalModel[0].MortID}}</label>
+        </div>
+        <div class="col-sm">
+
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-sm">
+            <label>MLSID</label>
+        </div>
+        <div class="col-sm">
+            <label>{{AppraisalModel[0].M1sID}}</label>
+        </div>
+        <div class="col-sm">
+
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-sm">
+            <label>Appraisal Value</label>
+        </div>
+        <div class="col-sm">
+            <input type="text" placeholder="Enter Appraisal Value" [(ngModel)] = 'appraisalvalue'>
+        </div>
+        <div class="col-sm">
+
+        </div>
+    </div>
+    <br>
+    <br>
+    <div class="row">
+        <div class="col" style="margin-left: 15%">
+                <button class="btn btn-info" style="width: 10%" (click)='SaveDetails()'>Save</button>
+            <button class="btn btn-info" style="margin-left: 5%" [routerLink]="['/pendingrequest']">Back to list</button>
+        </div>
+    </div>
+</div>
