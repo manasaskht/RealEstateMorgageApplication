@@ -16,6 +16,7 @@ module.exports = {
     customerName: { type: 'string', required: true },
     appraisalValue: { type: 'number', required: true },
     status: {type:'string'}
+
     //  ╔═╗╦═╗╦╔╦╗╦╔╦╗╦╦  ╦╔═╗╔═╗
     //  ╠═╝╠╦╝║║║║║ ║ ║╚╗╔╝║╣ ╚═╗
     //  ╩  ╩╚═╩╩ ╩╩ ╩ ╩ ╚╝ ╚═╝╚═╝
