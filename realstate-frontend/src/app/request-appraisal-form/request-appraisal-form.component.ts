@@ -40,8 +40,7 @@ export class RequestAppraisalFormComponent implements OnInit {
     }
 
     let customer = {
-      custFirstName: this.requestAppraiserForm.get('custFirstName').value,
-      custLastName: this.requestAppraiserForm.get('custLastName').value,
+      Name: this.requestAppraiserForm.get('Name').value,
       MlsID: this.requestAppraiserForm.get('MlsID').value,
       MortID: this.requestAppraiserForm.get('MortID').value,
     };

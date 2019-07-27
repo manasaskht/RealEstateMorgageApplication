@@ -52,7 +52,7 @@ export class LoginComponent implements OnInit {
             type: 'success',
             confirmButtonText: 'OK',
             onClose: () => {
-              this.router.navigate(['']);
+              this.router.navigate(['pendingrequest']);
             }
           });
         },
@@ -64,7 +64,7 @@ export class LoginComponent implements OnInit {
             type: 'error',
             confirmButtonText: 'OK',
             onClose: () => {
-              //this.router.navigate(['']);
+              this.router.navigate(['login']);
             }
           })
         });
