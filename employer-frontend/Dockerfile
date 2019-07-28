@@ -7,4 +7,4 @@ RUN npm run build --prod
 
 # stage 2
 FROM nginx:alpine
-COPY --from=node /app/dist/employer-frontend /usr/share/nginx/html
+COPY --from=node /app/dist/broker-frontend /usr/share/nginx/html
