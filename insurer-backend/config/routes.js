@@ -20,6 +20,14 @@ module.exports.routes = {
   ***************************************************************************/
 
   '/': { view: 'pages/homepage' },
+
+  //Route to create an insurer
+  "post /api/insurer/signup": "LoginController.signup",
+
+
+  //Route to login
+  "post /api/insurer/login": "LoginController.login",
+
   "POST /api/validateUser": "LoginController.validateLogin",
   "POST /api/insertInsuranceDetails": "InsurancequoteController.insertInsuranceDetails",
   "GET /api/getpendingRequests": "InsurancequoteController.fetchAllPendingRequest",

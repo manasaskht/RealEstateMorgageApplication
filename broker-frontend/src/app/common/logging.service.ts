@@ -12,7 +12,7 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class LoggingService {
-  apiURL = 'http://localhost:1336';
+  apiURL = 'http://localhost:1337';
 
   constructor(private httpClient: HttpClient) {
   }

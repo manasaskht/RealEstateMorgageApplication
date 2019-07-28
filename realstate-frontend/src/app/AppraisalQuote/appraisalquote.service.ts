@@ -12,10 +12,10 @@ const httpOptions = {
     providedIn:'root'
 })
 
-export class AppraisalQuoteService 
+export class AppraisalQuoteService
 {
-apiURL = "http://localhost:1337";
-apiURL1 = "http://localhost:1339";
+apiURL = "http://localhost:1339";
+apiURL1 = "http://localhost:1340";
 constructor(private httpClient: HttpClient)
 {
 
@@ -28,10 +28,10 @@ public getDetails(mortgageId : string)
 
 public sendAppraisalDetailsToInsurer(AppraisalDet : Object)
 {
-    return this.httpClient.post<Boolean>(`${this.apiURL1}/api/insertInsuranceDetails`, AppraisalDet, httpOptions) 
+    return this.httpClient.post<Boolean>(`${this.apiURL1}/api/insertInsuranceDetails`, AppraisalDet, httpOptions)
 }
 public updateAppraisalDetails(updatedAppraisalDet : Object)
 {
-    return this.httpClient.post<Boolean>(`${this.apiURL}/api/updateAppraisalDetails`, updatedAppraisalDet, httpOptions) 
+    return this.httpClient.post<Boolean>(`${this.apiURL}/api/updateAppraisalDetails`, updatedAppraisalDet, httpOptions)
 }
 }

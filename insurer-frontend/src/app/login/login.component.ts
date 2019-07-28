@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { LoginService } from './login.service';
 import { Router } from '@angular/router';
+import { FormBuilder, FormGroup, Validators , ReactiveFormsModule} from '@angular/forms';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-login',
@@ -10,46 +12,65 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private loginService: LoginService, private router: Router) { }
+  insurerLoginForm: FormGroup;
+  submitted = false;
 
-  username: string;
-  password: string;
-  showErrorMsg: boolean;
-  errorMsg: string;
-  
-  validateUser() {
-    this.showErrorMsg = false;
-    sessionStorage.clear();
-    if (this.validateInputs()) {
-      sessionStorage.setItem('username', this.username);
-      sessionStorage.setItem('password', this.password);
-      this.loginService.isUserAuthenticated({username: this.username, password: this.password}).subscribe(x => {
-        if (x['isValidUser'] === true) {
-          this.router.navigate(['pendingrequest']);
-        } else {
-          this.showErrorMsg = true;
-          this.errorMsg = 'Invalid credentials !!!';
-        }
-      
-      });
-    } else {
-      this.showErrorMsg = true;
-    }
-  }
+  constructor(private formBuilder: FormBuilder, public LoginService: LoginService, public router: Router) { }
+
   ngOnInit() {
+
+    this.insurerLoginForm = this.formBuilder.group({
+      username: ['', Validators.required],
+      password: ['', [Validators.required, Validators.minLength(6)]],
+    });
   }
-  validateInputs(): boolean {
-    let isInputValid = true;
-    if (!this.username && !this.password) {
-      isInputValid = false;
-      this.errorMsg = 'Please enter the username and password';
-    } else if (!this.username) {
-      isInputValid = false;
-      this.errorMsg = 'Please enter the username';
-    } else if (!this.password) {
-      isInputValid = false;
-      this.errorMsg = 'Please enter the password';
+  // convenience getter for easy access to form fields
+  get f() {
+    return this.insurerLoginForm.controls;
+  }
+
+
+
+  onSubmit() {
+    this.submitted = true;
+
+    // stop here if form is invalid
+    if (this.insurerLoginForm.invalid) {
+      return;
     }
-    return isInputValid;
+
+    let insurer = {
+      insurerid: this.insurerLoginForm.get('username').value,
+      password: this.insurerLoginForm.get('password').value,
+    };
+
+
+    this.LoginService.login(insurer)
+      .subscribe(data => {
+          localStorage.removeItem('reappraiserID');
+          localStorage.setItem('reappraiserID', this.insurerLoginForm.get('username').value);
+
+          //Source: https://sweetalert2.github.io/#examples
+          Swal.fire({
+            title: 'You have logged in successfully',
+            type: 'success',
+            confirmButtonText: 'OK',
+            onClose: () => {
+              this.router.navigate(['pendingrequest']);
+            }
+          });
+        },
+        err => {
+          console.log(err);
+          Swal.fire({
+            title: 'Error!',
+            text: 'Your credentials do not match. Please, try again.',
+            type: 'error',
+            confirmButtonText: 'OK',
+            onClose: () => {
+              this.router.navigate(['login']);
+            }
+          })
+        });
   }
 }

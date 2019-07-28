@@ -3,6 +3,8 @@ import { ActivatedRoute } from '@angular/router';
 import { insuranceDetails } from '../model/insuranceDetails';
 import { pendingrequestService } from '../pendingrequest/pendingrequest.service';
 import { GenerateQuoteService } from './generate-quote.service';
+import Swal from 'sweetalert2';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-generate-quote',
   templateUrl: './generate-quote.component.html',
@@ -11,14 +13,14 @@ import { GenerateQuoteService } from './generate-quote.service';
 })
 export class GenerateQuoteComponent implements OnInit {
 
-  constructor(private route: ActivatedRoute, private _generateQuoteService : GenerateQuoteService) 
+  constructor(private route: ActivatedRoute, private _generateQuoteService : GenerateQuoteService, private redirect: Router)
   {
 
   }
   public insuranceModel : insuranceDetails;
   insuredValue: Number;
   deductibleValue:Number;
-  ngOnInit() 
+  ngOnInit()
   {
   this.insuranceModel =  new insuranceDetails();
   this.insuranceModel.MortID = this.route.snapshot.params['MortID'];
@@ -38,11 +40,20 @@ export class GenerateQuoteComponent implements OnInit {
       appraisalValue: this.insuranceModel.appraisalValue
     }).subscribe( data =>{
       console.log(data);
+      Swal.fire({
+        title: 'saved successfully',
+        type: 'success',
+        confirmButtonText: 'OK',
+        onClose: () => {
+          this.redirect.navigate(['pendingrequest']);
+        }
+      });
     });
     this._generateQuoteService.updateInsuranceDetails({insuredValue:this.insuredValue,deductibleValue:this.deductibleValue,MortID:this.insuranceModel.MortID}
       ).subscribe(data =>
         {
           console.log(data);
+          this.redirect.navigate(['pendingrequest']);
         })
   }
 }

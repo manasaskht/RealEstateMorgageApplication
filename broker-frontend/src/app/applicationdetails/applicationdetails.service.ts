@@ -6,7 +6,7 @@ import {mortgagedetails} from '../model/mortgagedetails';
 
 @Injectable()
 export class ApplicationDetailsService {
-  apiURL = 'https://cc-broker-website.azurewebsites.net';
+  apiURL = 'http://localhost:1337';
 
   constructor(private httpClient: HttpClient) {
   }
