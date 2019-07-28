@@ -12,7 +12,7 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class MortgageApplicationService {
-  apiURL = 'http://localhost:1337';
+  apiURL = 'http://35.244.251.62';
 
   constructor(private httpClient: HttpClient) {
   }

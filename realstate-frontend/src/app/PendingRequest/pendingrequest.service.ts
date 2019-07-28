@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
 @Injectable()
 export class pendingrequestService
 {
-    apiURL = "http://localhost:1339";
+    apiURL = "http://34.98.84.53";
     constructor(private httpClient : HttpClient)
     {
 

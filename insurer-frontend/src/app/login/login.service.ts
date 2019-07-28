@@ -11,7 +11,7 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class LoginService {
-  apiURL = 'http://localhost:1340';
+  apiURL = 'http://34.96.123.35';
 
   constructor(private httpClient: HttpClient) {
   }

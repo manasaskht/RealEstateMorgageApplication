@@ -14,8 +14,8 @@ const httpOptions = {
 
 export class AppraisalQuoteService
 {
-apiURL = "http://localhost:1339";
-apiURL1 = "http://localhost:1340";
+apiURL = "http://34.98.84.53";
+apiURL1 = "http://34.96.123.35";
 constructor(private httpClient: HttpClient)
 {
 

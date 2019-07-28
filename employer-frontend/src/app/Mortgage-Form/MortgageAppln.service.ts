@@ -14,7 +14,7 @@ const httpOptions = {
 
 
 export class MortgageForm {
-  apiURL = 'http://localhost:1338';
+  apiURL = 'http://35.190.4.77';
 
   constructor(private httpClient: HttpClient) {
   }

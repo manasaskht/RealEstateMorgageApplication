@@ -11,7 +11,7 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class RequestAppraisalFormService {
-  apiURL = 'http://localhost:1339';
+  apiURL = 'http://34.98.84.53';
 
   constructor(private httpClient: HttpClient) {
   }

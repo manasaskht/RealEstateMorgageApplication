@@ -9,7 +9,7 @@ import {Employee} from "../model/employee";
   providedIn: 'root'
 })
 export class MyapplicationsService {
-  apiURL = 'http://localhost:1337';
+  apiURL = 'http://35.244.251.62';
 
   constructor(private httpClient: HttpClient) {
   }

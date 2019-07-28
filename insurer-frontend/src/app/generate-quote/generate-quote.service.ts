@@ -14,8 +14,8 @@ const httpOptions = {
 
 export class GenerateQuoteService
 {
-apiURL = "http://localhost:1340";
-apiURL1 = "http://localhost:1337";
+apiURL = "http://34.96.123.35";
+apiURL1 = "http://35.244.251.62";
 constructor(private httpClient: HttpClient)
 {
 
