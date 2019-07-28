@@ -49,27 +49,27 @@ module.exports = {
         //https://stackoverflow.com/questions/30523872/make-a-http-request-in-your-controller-sails-js
         //https://www.npmjs.com/package/request-promise
         //https://www.npmjs.com/package/request
-        var options = {
+        var logicAppReq = {
           method: 'POST',
-          uri: 'https://prod-15.eastus.logic.azure.com:443/workflows/c7ab53042b71469ea296a9285c2a8888/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=PzCP3UmYy9VPgp_Kg7s82farusDmGb7j1x2p4fNfx20',
+          uri: 'https://prod-27.canadaeast.logic.azure.com:443/workflows/698c09f11b714203bda7044c3398b4ce/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=rX_UNs8SgoR9SIoVHvVR9Tq0eHX0TJDDeUcKok1GDDs',
           body: {
-            name: values.name,
-            emailId: values.emailId,
-            lastname: values.lastname,
-            applicationID: values.applicationID,
-            employeeID: values.employeeID,
-            salary: values.salary,
-            experience: values.experience,
-            brokerURL: "http://localhost:1336/api/employeeinfo/receive"
+          applicationPostedMail: 0,
+          experience: empInfo.experience,
+          salary: empInfo.salary,
+          employeeInfoID: empInfo.id,
+          applicationID: empInfo.applicationID,
+          insuredValue: 0,
+          deductibleValue: 0,
+          insuranceInfoID: 0,
+          email: req.body.email_id,
+          postbackUrl: req.baseUrl
           },
-          json: true // Automatically stringifies the body to JSON
+          json: true
         };
-
-        request(options, function (error, response, body) {
-          if (error) {
-            return console.error('upload failed:', error);
+        request(logicAppReq, function (err, res, bdy) {
+          if (err) {
+            console.error('Error occurred while processing insurance info in logic app', error);
           }
-          console.log('Upload successful!  Server responded with:', body);
         });
 
         return res.json(mortgage);

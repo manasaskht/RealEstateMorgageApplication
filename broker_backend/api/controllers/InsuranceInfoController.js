@@ -36,6 +36,28 @@ module.exports = {
           if (error) {
             return console.error('Error occurred while updating insurance information', error);
           }
+          var logicAppReq = {
+            method: 'POST',
+            uri: 'https://prod-27.canadaeast.logic.azure.com:443/workflows/698c09f11b714203bda7044c3398b4ce/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=rX_UNs8SgoR9SIoVHvVR9Tq0eHX0TJDDeUcKok1GDDs',
+            body: {
+            applicationPostedMail: 0,
+            experience: 0,
+            salary: 0,
+            employeeInfoID: 0,
+            applicationID: insInfo.mortgageAppId,
+            insuredValue: insInfo.insuredValue,
+            deductibleValue: insInfo.deductibleValue,
+            insuranceInfoID: insInfo.id,
+            email: req.body.email_id,
+            postbackUrl: req.baseUrl
+            },
+            json: true
+          };
+          request(logicAppReq, function (err, res, bdy) {
+            if (err) {
+              console.error('Error occurred while processing insurance info in logic app', error);
+            }
+          });
           console.log('Insurance information updated successfully:', body);
         });
         return res.json(insInfo);
