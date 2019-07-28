@@ -26,11 +26,11 @@ export class ApplicationdetailsComponent implements OnInit {
       data => {
         console.log(data);
         this.mortgageModel = data;
-        this.loggingService.logReqResp('GetApplicationDetails: Application id -' + this.mortgageModel, JSON.stringify(data)).subscribe();
+        this.loggingService.logReqResp('MBR: GetApplicationDetails: Application id -' + this.mortgageModel, JSON.stringify(data)).subscribe();
       },
       err => {
         console.log(err);
-        this.loggingService.logReqResp('GetApplicationDetails: Application id -' + this.mortgageModel, JSON.stringify(err)).subscribe();
+        this.loggingService.logReqResp('MBR: GetApplicationDetails: Application id -' + this.mortgageModel, JSON.stringify(err)).subscribe();
       }
 
     );

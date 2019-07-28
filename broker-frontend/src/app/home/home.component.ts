@@ -20,11 +20,11 @@ export class HomeComponent implements OnInit {
       .subscribe(data => {
           this.employees = data;
           console.log("employees", data);
-          this.loggingService.logReqResp('GetEmployees', JSON.stringify(data)).subscribe();
+          this.loggingService.logReqResp('MBR: GetEmployees', JSON.stringify(data)).subscribe();
         },
         err => {
           console.log(err);
-          this.loggingService.logReqResp('GetEmployees', JSON.stringify(err)).subscribe();
+          this.loggingService.logReqResp('MBR: GetEmployees', JSON.stringify(err)).subscribe();
         });
   }
 

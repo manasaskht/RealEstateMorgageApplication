@@ -18,10 +18,10 @@ export class MyapplicationsComponent implements OnInit {
     const userName = sessionStorage.getItem('username');
     this.myapplnService.fetchMyApplications(userName).subscribe(x => {
       this.applications = x;
-      this.loggingService.logReqResp('fetch mortgageapplications: username - ' + userName, JSON.stringify(x)).subscribe();
+      this.loggingService.logReqResp('MBR: fetch mortgageapplications: username - ' + userName, JSON.stringify(x)).subscribe();
     },
     err => {
-      this.loggingService.logReqResp('fetch mortgageapplications: username - ' + userName, JSON.stringify(err)).subscribe();
+      this.loggingService.logReqResp('MBR: fetch mortgageapplications: username - ' + userName, JSON.stringify(err)).subscribe();
     });
   }
 

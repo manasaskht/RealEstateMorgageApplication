@@ -3,6 +3,7 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {EmployerLoginService} from "./employer-login.service";
 import {Router} from "@angular/router";
 import Swal from 'sweetalert2';
+import { LoggingService } from './common/logging.service';
 
 @Component({
   selector: 'app-employer-login',
@@ -14,7 +15,8 @@ export class EmployerLoginComponent implements OnInit {
   employerLoginForm: FormGroup;
   submitted = false;
 
-  constructor(private formBuilder: FormBuilder, public employerLoginService: EmployerLoginService, public router: Router) {
+  constructor(private formBuilder: FormBuilder, public employerLoginService: EmployerLoginService, public router: Router,
+              public loggingService: LoggingService) {
   }
 
   ngOnInit() {
@@ -44,6 +46,7 @@ export class EmployerLoginComponent implements OnInit {
 
     this.employerLoginService.login(employee)
       .subscribe(data => {
+        this.loggingService.logReqResp('EMP: Employer login request: ' + JSON.stringify(employee), JSON.stringify(data)).subscribe();
           localStorage.removeItem('employeeID');
           localStorage.setItem('employeeID', this.employerLoginForm.get('username').value);
 
@@ -58,6 +61,7 @@ export class EmployerLoginComponent implements OnInit {
           });
         },
         err => {
+          this.loggingService.logReqResp('EMP: Employer login request: ' + JSON.stringify(employee), JSON.stringify(err)).subscribe();
           console.log(err);
           Swal.fire({
             title: 'Error!',
