@@ -70,7 +70,7 @@ export class MorgageApplicationFormComponent implements OnInit {
           //Source: https://sweetalert2.github.io/#examples
           Swal.fire({
             title: 'Application form submitted successfully!',
-            text: 'Your application id is: ' + data["id"],
+            text: 'Your mortgage application id is: ' + data["id"],
             type: 'success',
             confirmButtonText: 'OK',
             onClose: () => {
