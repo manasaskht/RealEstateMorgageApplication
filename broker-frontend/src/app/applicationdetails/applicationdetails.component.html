@@ -1,7 +1,7 @@
 <app-navbar></app-navbar>
 <div class="container" style="margin-top: 30px;">
 
-  <h5>Application Number: {{mortgageModel.id}} - Status: {{mortgageModel.status}}</h5>
+  <h4>Mortgage Application Id: {{mortgageModel.id}} - <b>Status: {{mortgageModel.status}}</b></h4>
   <hr>
   <div>
     <h5>
@@ -168,14 +168,13 @@
 
     </div>
   </div>
-  <br>
-  <h5>Application Decision Details: {{ mortgageModel.status }} </h5>
-    <!-- employeeInfo || !mortgageModel.insuranceInfo ? 'Pending' : (mortgageModel.employeeInfo.status == 'Approved' && mortgageModel.insuranceInfo.status == 'Approved' ? 'Approved' : 'Rejected' )}}</h5> -->
   <hr>
+  <br>
+  <h4>Application Decision Details: </h4>
+    <!-- employeeInfo || !mortgageModel.insuranceInfo ? 'Pending' : (mortgageModel.employeeInfo.status == 'Approved' && mortgageModel.insuranceInfo.status == 'Approved' ? 'Approved' : 'Rejected' )}}</h5> -->
   <br>
   <br>
   <h5>Information Provided by Employer - {{ mortgageModel.employeeInfo ? mortgageModel.employeeInfo.status : 'Awaiting for Information' }}</h5>
-  <hr>
   <br>
   <div class="row" *ngIf="mortgageModel.employeeInfo">
     <div class="col-sm">
@@ -226,8 +225,6 @@
   </div> -->
   <br>
   <h5>Information Provided by Insurance Company - {{ mortgageModel.insuranceInfo != null ? mortgageModel.insuranceInfo.status : 'Awaiting for Information' }}</h5>
-  <hr>
-  <br>
   <div *ngIf="mortgageModel.insuranceInfo">
   <div class="row">
     <div class="col-sm">
@@ -236,7 +233,7 @@
           <label>Insured Value</label>
         </div>
         <div class="col-sm">
-          <label class="labelSpacing">{{mortgageModel.insuranceInfo.insuredValue}} years</label>
+          <label class="labelSpacing">{{mortgageModel.insuranceInfo.insuredValue}}</label>
         </div>
         <div class="sol-sm">
         </div>
@@ -255,45 +252,6 @@
     </div>
   </div>
   <br>
-  <div class="row">
-    <div class="col-sm">
-      <div class="row">
-        <div class="col-sm-3">
-          <label>Appraisal Value</label>
-        </div>
-        <div class="col-sm">
-          <label class="labelSpacing">{{mortgageModel.insuranceInfo.appraisalValue}}</label>
-        </div>
-        <div class="sol-sm">
-
-        </div>
-      </div>
-
-    </div>
-    <div class="col-sm">
-
-    </div>
-  </div>
-  <br>
-  <div class="row">
-    <div class="col-sm">
-      <div class="row">
-        <div class="col-sm-3">
-          <label>Status</label>
-        </div>
-        <div class="col-sm">
-          <label class="labelSpacing">{{mortgageModel.insuranceInfo.status}}</label>
-        </div>
-        <div class="sol-sm">
-
-        </div>
-      </div>
-
-    </div>
-    <div class="col-sm">
-
-    </div>
-  </div>
 </div>
   <br>
   <br>
