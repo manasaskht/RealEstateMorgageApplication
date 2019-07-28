@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { LoginService } from './login.service';
 import { Router } from '@angular/router';
+import { LoggingService } from '../Common/logging.service';
 
 @Component({
   selector: 'app-login',
@@ -10,7 +11,7 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private loginService: LoginService, private router: Router) { }
+  constructor(private loginService: LoginService, private router: Router,private loggingService: LoggingService) { }
 
   username: string;
   password: string;
@@ -30,7 +31,8 @@ export class LoginComponent implements OnInit {
           this.showErrorMsg = true;
           this.errorMsg = 'Invalid credentials !!!';
         }
-      
+        this.loggingService.logReqResp('ValidateUser: Username - ' + this.username + ' password - ' +
+        this.password, JSON.stringify(x)).subscribe();
       });
     } else {
       this.showErrorMsg = true;

@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { insuranceDetails } from '../model/insuranceDetails';
 import { pendingrequestService } from '../pendingrequest/pendingrequest.service';
 import { GenerateQuoteService } from './generate-quote.service';
+import { LoggingService } from '../Common/logging.service';
 @Component({
   selector: 'app-generate-quote',
   templateUrl: './generate-quote.component.html',
@@ -11,7 +12,7 @@ import { GenerateQuoteService } from './generate-quote.service';
 })
 export class GenerateQuoteComponent implements OnInit {
 
-  constructor(private route: ActivatedRoute, private _generateQuoteService : GenerateQuoteService) 
+  constructor(private route: ActivatedRoute, private _generateQuoteService : GenerateQuoteService,private loggingService: LoggingService) 
   {
 
   }
@@ -43,6 +44,9 @@ export class GenerateQuoteComponent implements OnInit {
       ).subscribe(data =>
         {
           console.log(data);
+          this.loggingService.logReqResp('updateInsuranceDetails request:', JSON.stringify(data)).subscribe();
+        },err=>{
+          this.loggingService.logReqResp('Error in updateInsuranceDetails request:', JSON.stringify(err)).subscribe();
         })
   }
 }
