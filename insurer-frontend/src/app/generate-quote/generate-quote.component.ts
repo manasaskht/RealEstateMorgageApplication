@@ -13,7 +13,7 @@ import { LoggingService } from '../Common/logging.service';
 })
 export class GenerateQuoteComponent implements OnInit {
 
-  constructor(private route: ActivatedRoute, private _generateQuoteService : GenerateQuoteService,private loggingService: LoggingService,private rte: Router) 
+  constructor(private route: ActivatedRoute, private _generateQuoteService : GenerateQuoteService,private loggingService: LoggingService,private rte: Router)
   {
 
   }
@@ -40,18 +40,26 @@ export class GenerateQuoteComponent implements OnInit {
       appraisalValue: this.insuranceModel.appraisalValue
     }).subscribe( data =>{
       console.log(data);
-   
+      this.loggingService.logReqResp('INS_Send the insuranceInfo to broker request:'+  JSON.stringify({mortgageAppId:this.insuranceModel.MortID,msid: this.insuranceModel.MisId,
+        insuredValue: this.insuredValue,deductibleValue:this.deductibleValue,customerName: this.insuranceModel.customerName,
+        appraisalValue: this.insuranceModel.appraisalValue
+      }), 'insuranceInfo Response- ' + JSON.stringify(data)).subscribe();
+    }, err => {
+      this.loggingService.logReqResp('INS-Error in the insuranceInfo to broker request:'+  JSON.stringify({mortgageAppId:this.insuranceModel.MortID,msid: this.insuranceModel.MisId,
+        insuredValue: this.insuredValue,deductibleValue:this.deductibleValue,customerName: this.insuranceModel.customerName,
+        appraisalValue: this.insuranceModel.appraisalValue
+      }), 'INS-insuranceInfo Error Response- ' + JSON.stringify(err)).subscribe();
     });
     this._generateQuoteService.updateInsuranceDetails({insuredValue:this.insuredValue,deductibleValue:this.deductibleValue,MortID:this.insuranceModel.MortID}
       ).subscribe(data =>
         {
           console.log(data);
           console.log('update method entered');
-       
-          this.loggingService.logReqResp('updateInsuranceDetails request:', JSON.stringify(data)).subscribe();
+
+          this.loggingService.logReqResp('INS-updateInsuranceDetails request:'+  JSON.stringify({insuredValue:this.insuredValue,deductibleValue:this.deductibleValue,MortID:this.insuranceModel.MortID}),'INS-updateInsuranceDetails Response- ' + JSON.stringify(data)).subscribe();
 
         },err=>{
-          this.loggingService.logReqResp('Error in updateInsuranceDetails request:', JSON.stringify(err)).subscribe();
+          this.loggingService.logReqResp('INS-Error in updateInsuranceDetails:', JSON.stringify(err)).subscribe();
         });
         Swal.fire({
           title: 'Insured and Deductible amount updated successfully',

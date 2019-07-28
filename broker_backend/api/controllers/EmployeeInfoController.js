@@ -62,7 +62,8 @@ module.exports = {
           deductibleValue: 0,
           insuranceInfoID: 0,
           email: req.body.emailId,
-          postbackUrl: req.baseUrl
+          //postbackUrl: req.baseUrl
+          postbackUrl: "http://35.202.110.53:1337"
           },
           json: true
         };
@@ -93,7 +94,7 @@ module.exports = {
   updateEmployeeInfo: function (req, res) {
     let baseQuery = "CALL updateMortgageStatusOnEmpInfoUpdate(" + req.body.applicationID + ", " + req.body.id + ", '" + req.body.decision + "');";
     sails.log(baseQuery);
-  
+
     EmployeeInfo.getDatastore().sendNativeQuery(baseQuery, function (err, rawResult) {
       if (err) {
         return res.serverError(err);
@@ -101,8 +102,8 @@ module.exports = {
      // let results = JSON.parse(JSON.stringify(rawResult.rows))
       return res.send("Success");
     });
-  
-  
+
+
   },
 
 };

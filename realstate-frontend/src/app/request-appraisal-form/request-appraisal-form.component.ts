@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { RequestAppraisalFormService } from './request-appraisal-form.service';
 import Swal from 'sweetalert2';
+import { LoggingService } from '../Common/logging.service';
 
 @Component({
   selector: 'app-request-appraisal-form',
@@ -14,7 +15,7 @@ export class RequestAppraisalFormComponent implements OnInit {
   requestAppraiserForm: FormGroup;
   submitted = false;
 
-  constructor(private formBuilder: FormBuilder, public requestAppraisalFormService: RequestAppraisalFormService, public router: Router) { }
+  constructor(private formBuilder: FormBuilder, public requestAppraisalFormService: RequestAppraisalFormService, public router: Router, private loggingService:LoggingService) { }
 
 
 
@@ -49,7 +50,7 @@ export class RequestAppraisalFormComponent implements OnInit {
     this.requestAppraisalFormService.requestAppraisal(customer)
       .subscribe(data => {
         console.log(data  );
-
+        this.loggingService.logReqResp('RE- requestappraisal form submit request' + customer , ' requestappraisal response' + JSON.stringify(data)).subscribe();
         //Source: https://sweetalert2.github.io/#examples
         Swal.fire({
           title: 'You have Submitted the form successfully',
@@ -62,6 +63,7 @@ export class RequestAppraisalFormComponent implements OnInit {
       },
         err => {
           console.log(err);
+          this.loggingService.logReqResp('RE- requestappraisal form submit request' + customer , ' requestappraisal error response' + JSON.stringify(err)).subscribe();
           Swal.fire({
             title: 'Error!',
             text: 'Please, try again.',

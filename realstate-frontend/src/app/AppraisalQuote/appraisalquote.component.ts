@@ -26,7 +26,9 @@ export class AppraisalQuoteComponent implements OnInit {
         this.AppraisalModel = data;
         console.log('Service response');
         console.log(this.AppraisalModel);
-        this.loggingService.logReqResp(' getDetails request in real state:', JSON.stringify(data)).subscribe();
+        this.loggingService.logReqResp('RE- getDetails request in real state:', JSON.stringify(data)).subscribe();
+      }, err => {
+        this.loggingService.logReqResp('RE- Error in getDetails request in real state:', JSON.stringify(err)).subscribe();
       }
     );
   }
@@ -38,11 +40,22 @@ export class AppraisalQuoteComponent implements OnInit {
       appraisalValue: this.appraisalvalue, customerName: this.AppraisalModel[0].Name
     }).subscribe(data => {
       console.log(data);
-   
+      this.loggingService.logReqResp('RE- send info to insurer insertInsuranceDetails request' + {
+        MortID: this.AppraisalModel[0].MortID, MisId: this.AppraisalModel[0].M1sID,
+        appraisalValue: this.appraisalvalue, customerName: this.AppraisalModel[0].Name
+      }, ' insertInsuranceDetails response' + JSON.stringify(data)).subscribe();
+    }, err => {
+      this.loggingService.logReqResp('RE- Error in send info to insurer insertInsuranceDetails request' + {
+        MortID: this.AppraisalModel[0].MortID, MisId: this.AppraisalModel[0].M1sID,
+        appraisalValue: this.appraisalvalue, customerName: this.AppraisalModel[0].Name
+      }, 'RE- Error in insertInsuranceDetails response' + JSON.stringify(err)).subscribe();
     });
     this._generateQuoteService.updateAppraisalDetails({ AppraisalValue: this.appraisalvalue, MortID: this.AppraisalModel[0].MortID }
     ).subscribe(data => {
       console.log(data);
+      this.loggingService.logReqResp('RE- updating the records request' + { AppraisalValue: this.appraisalvalue, MortID: this.AppraisalModel[0].MortID }, 'RE- updating the records request' + JSON.stringify(data)).subscribe();
+    },err => {
+      this.loggingService.logReqResp('RE- updating the records request' + { AppraisalValue: this.appraisalvalue, MortID: this.AppraisalModel[0].MortID }, 'RE- updating the records request' + JSON.stringify(err)).subscribe();
     });
     Swal.fire({
       title: 'saved successfully',

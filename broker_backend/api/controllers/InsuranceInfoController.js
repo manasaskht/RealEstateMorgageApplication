@@ -44,7 +44,7 @@ module.exports = {
             appId: insInfo.mortgageAppId
             },
             json: true
-          } 
+          }
           request(getUserEmailReq, function (emailRetrieveError, emailRes, emailResBody) {
             if (emailRetrieveError) {
               console.error('Error occurred while retrieving user email. Mail will not be sent!', error);
@@ -62,7 +62,8 @@ module.exports = {
             deductibleValue: insInfo.deductibleValue,
             insuranceInfoID: insInfo.id,
             email: emailResBody.email,
-            postbackUrl: req.baseUrl
+            //postbackUrl: req.baseUrl
+            postbackUrl: "http://35.202.110.53:1337"
             },
             json: true
           };
@@ -82,7 +83,7 @@ module.exports = {
   updateInsuranceinfo: function (req, res) {
     let baseQuery = "CALL updateMortgageStatusOnInsInfoUpdate(" + req.body.applicationID + ", " + req.body.id + ", '" + req.body.decision + "');";
     sails.log(baseQuery);
-  
+
     InsuranceInfo.getDatastore().sendNativeQuery(baseQuery, function (err, rawResult) {
       if (err) {
         return res.serverError(err);
@@ -90,8 +91,8 @@ module.exports = {
      // let results = JSON.parse(JSON.stringify(rawResult.rows))
       return res.send("Success");
     });
-  
-  
+
+
   },
 
 };
