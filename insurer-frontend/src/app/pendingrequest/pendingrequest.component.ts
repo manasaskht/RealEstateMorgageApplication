@@ -7,7 +7,7 @@ import { LoggingService } from '../Common/logging.service';
   selector: 'app-pendingrequest',
   templateUrl: './pendingrequest.component.html',
   styleUrls: ['./pendingrequest.component.css'],
-  providers: [pendingrequestService]
+  providers: [pendingrequestService,LoggingService]
 })
 export class PendingrequestComponent implements OnInit 
 {

@@ -9,11 +9,11 @@ import { LoggingService } from '../Common/logging.service';
   selector: 'app-generate-quote',
   templateUrl: './generate-quote.component.html',
   styleUrls: ['./generate-quote.component.css'],
-  providers: [GenerateQuoteService]
+  providers: [GenerateQuoteService,LoggingService]
 })
 export class GenerateQuoteComponent implements OnInit {
 
-  constructor(private route: ActivatedRoute, private _generateQuoteService : GenerateQuoteService,private loggingService: LoggingService,, private redirect: Router) 
+  constructor(private route: ActivatedRoute, private _generateQuoteService : GenerateQuoteService,private loggingService: LoggingService,private redirect: Router) 
   {
 
   }
@@ -40,23 +40,25 @@ export class GenerateQuoteComponent implements OnInit {
       appraisalValue: this.insuranceModel.appraisalValue
     }).subscribe( data =>{
       console.log(data);
-      Swal.fire({
-        title: 'saved successfully',
-        type: 'success',
-        confirmButtonText: 'OK',
-        onClose: () => {
-          this.redirect.navigate(['pendingrequest']);
-        }
-      });
+   
     });
     this._generateQuoteService.updateInsuranceDetails({insuredValue:this.insuredValue,deductibleValue:this.deductibleValue,MortID:this.insuranceModel.MortID}
       ).subscribe(data =>
         {
           console.log(data);
+          Swal.fire({
+            title: 'saved successfully',
+            type: 'success',
+            confirmButtonText: 'OK',
+            onClose: () => {
+              this.redirect.navigate(['pendingrequest']);
+            }
+          });
           this.redirect.navigate(['pendingrequest']);
-          this.loggingService.logReqResp('updateInsuranceDetails request:', JSON.stringify(data)).subscribe();
+          //this.loggingService.logReqResp('updateInsuranceDetails request:', JSON.stringify(data)).subscribe();
+
         },err=>{
-          this.loggingService.logReqResp('Error in updateInsuranceDetails request:', JSON.stringify(err)).subscribe();
+          //this.loggingService.logReqResp('Error in updateInsuranceDetails request:', JSON.stringify(err)).subscribe();
         })
   }
 }
