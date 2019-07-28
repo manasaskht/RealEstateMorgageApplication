@@ -12,9 +12,9 @@ const httpOptions = {
 @Injectable({
   providedIn: 'root'
 })
-export class LoginService 
+export class LoginService
 {
-  apiURL = 'https://cc-broker-website.azurewebsites.net';
+  apiURL = 'http://localhost:1337';
 
   constructor(private httpClient: HttpClient, private router: Router) {
   }

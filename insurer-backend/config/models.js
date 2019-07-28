@@ -68,10 +68,10 @@ module.exports.models = {
   *                                                                          *
   ***************************************************************************/
 
-  attributes: {
-    createdAt: { type: 'number', autoCreatedAt: true, },
-    updatedAt: { type: 'number', autoUpdatedAt: true, },
-    id: { type: 'number', autoIncrement: true, },
+ attributes: {
+  createdAt: { type: 'number', autoCreatedAt: true, },
+  updatedAt: { type: 'number', autoUpdatedAt: true, },
+  id: { type: 'number', autoIncrement: true, },
     //--------------------------------------------------------------------------
     //  /\   Using MongoDB?
     //  ||   Replace `id` above with this instead:
@@ -100,9 +100,9 @@ module.exports.models = {
   *                                                                             *
   ******************************************************************************/
 
-  dataEncryptionKeys: {
-    default: 'MWdpD80ZUjPwHZtOKCSNDCk8OSyAj1Gip8TI5ZpHnFs='
-  },
+ dataEncryptionKeys: {
+  default: 'FI4t3c1Dy+KdJNMOpoO4vlh7YgP5dbku+UuYHWNXCSo='
+},
 
 
   /***************************************************************************
@@ -118,7 +118,7 @@ module.exports.models = {
   *                                                                          *
   ***************************************************************************/
 
-  cascadeOnDestroy: true
-
+ cascadeOnDestroy: true,
+ fetchRecordsOnCreate: true
 
 };

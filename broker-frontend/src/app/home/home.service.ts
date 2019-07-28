@@ -6,7 +6,7 @@ import {Employee} from "../model/employee";
   providedIn: 'root'
 })
 export class HomeService {
-  apiURL = 'https://cc-broker-website.azurewebsites.net';
+  apiURL = 'http://localhost:1337';
 
   constructor(private httpClient: HttpClient) {
   }

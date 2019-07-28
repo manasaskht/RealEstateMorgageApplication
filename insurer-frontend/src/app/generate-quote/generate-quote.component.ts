@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { insuranceDetails } from '../model/insuranceDetails';
 import { pendingrequestService } from '../pendingrequest/pendingrequest.service';
 import { GenerateQuoteService } from './generate-quote.service';
+import Swal from 'sweetalert2';
 import { LoggingService } from '../Common/logging.service';
 @Component({
   selector: 'app-generate-quote',
@@ -12,14 +13,14 @@ import { LoggingService } from '../Common/logging.service';
 })
 export class GenerateQuoteComponent implements OnInit {
 
-  constructor(private route: ActivatedRoute, private _generateQuoteService : GenerateQuoteService,private loggingService: LoggingService) 
+  constructor(private route: ActivatedRoute, private _generateQuoteService : GenerateQuoteService,private loggingService: LoggingService,, private redirect: Router) 
   {
 
   }
   public insuranceModel : insuranceDetails;
   insuredValue: Number;
   deductibleValue:Number;
-  ngOnInit() 
+  ngOnInit()
   {
   this.insuranceModel =  new insuranceDetails();
   this.insuranceModel.MortID = this.route.snapshot.params['MortID'];
@@ -39,11 +40,20 @@ export class GenerateQuoteComponent implements OnInit {
       appraisalValue: this.insuranceModel.appraisalValue
     }).subscribe( data =>{
       console.log(data);
+      Swal.fire({
+        title: 'saved successfully',
+        type: 'success',
+        confirmButtonText: 'OK',
+        onClose: () => {
+          this.redirect.navigate(['pendingrequest']);
+        }
+      });
     });
     this._generateQuoteService.updateInsuranceDetails({insuredValue:this.insuredValue,deductibleValue:this.deductibleValue,MortID:this.insuranceModel.MortID}
       ).subscribe(data =>
         {
           console.log(data);
+          this.redirect.navigate(['pendingrequest']);
           this.loggingService.logReqResp('updateInsuranceDetails request:', JSON.stringify(data)).subscribe();
         },err=>{
           this.loggingService.logReqResp('Error in updateInsuranceDetails request:', JSON.stringify(err)).subscribe();

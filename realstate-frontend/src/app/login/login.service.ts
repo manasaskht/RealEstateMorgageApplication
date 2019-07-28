@@ -14,7 +14,7 @@ const httpOptions = {
 
 
 export class LoginService {
-  apiURL = 'http://localhost:1337';
+  apiURL = 'http://localhost:1339';
 
   constructor(private httpClient: HttpClient) {
   }

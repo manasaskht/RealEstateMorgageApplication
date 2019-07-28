@@ -8,11 +8,21 @@
     "@sailshq/connect-redis": "^3.2.1",
     "@sailshq/lodash": "^3.10.3",
     "@sailshq/socket.io-redis": "^5.2.0",
+<<<<<<< HEAD
+    "bcryptjs": "^2.4.3",
     "grunt": "1.0.4",
+    "jsonwebtoken": "^8.5.1",
+=======
+    "grunt": "1.0.4",
+>>>>>>> f59548bdc63aea0e411a4beb928f7eb717419ef5
     "sails": "^1.2.2",
     "sails-hook-grunt": "^4.0.0",
     "sails-hook-orm": "^2.1.1",
     "sails-hook-sockets": "^2.0.0",
+<<<<<<< HEAD
+    "sails-hook-validation": "^0.4.7",
+=======
+>>>>>>> f59548bdc63aea0e411a4beb928f7eb717419ef5
     "sails-mysql": "^1.0.1"
   },
   "devDependencies": {

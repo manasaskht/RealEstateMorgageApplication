@@ -4,9 +4,9 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
 @Injectable()
-export class pendingrequestService 
+export class pendingrequestService
 {
-    apiURL = "http://localhost:1337";
+    apiURL = "http://localhost:1340";
     constructor(private httpClient : HttpClient)
     {
 

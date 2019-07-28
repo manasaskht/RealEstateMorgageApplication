@@ -20,9 +20,8 @@ export class RequestAppraisalFormComponent implements OnInit {
 
   ngOnInit() {
     this.requestAppraiserForm = this.formBuilder.group({
-      custFirstName: ['', Validators.required],
-      custLastName: ['', Validators.required],
-      MlsID: ['', Validators.required],
+      Name: ['', Validators.required],
+      M1sID: ['', Validators.required],
       MortID: ['', Validators.required],
     });
   }
@@ -41,7 +40,7 @@ export class RequestAppraisalFormComponent implements OnInit {
 
     let customer = {
       Name: this.requestAppraiserForm.get('Name').value,
-      MlsID: this.requestAppraiserForm.get('MlsID').value,
+      M1sID: this.requestAppraiserForm.get('M1sID').value,
       MortID: this.requestAppraiserForm.get('MortID').value,
     };
     console.log(customer);
@@ -49,10 +48,7 @@ export class RequestAppraisalFormComponent implements OnInit {
 
     this.requestAppraisalFormService.requestAppraisal(customer)
       .subscribe(data => {
-        console.log(customer.MortID);
-
-
-
+        console.log(data  );
 
         //Source: https://sweetalert2.github.io/#examples
         Swal.fire({
