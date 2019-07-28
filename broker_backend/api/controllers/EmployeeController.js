@@ -33,6 +33,10 @@ module.exports = {
         return resolve(res.json(employees));
       });
     });
+  },
+
+  health: function(req,res){
+    return res.status(200).send('ok');
   }
 
 };
