@@ -4,14 +4,15 @@ import { Router } from '@angular/router';
 import { AppraisalQuoteService } from './appraisalquote.service';
 import { appraisalDetails } from '../model/appraisalDetails';
 import Swal from 'sweetalert2';
+import { LoggingService } from '../Common/logging.service';
 @Component({
   selector: 'app-appraisalquote',
   templateUrl: './appraisalquote.html',
   styleUrls: ['./appraisalquote.css'],
-  providers: [AppraisalQuoteService]
+  providers: [AppraisalQuoteService,LoggingService]
 })
 export class AppraisalQuoteComponent implements OnInit {
-  constructor(private route: ActivatedRoute, private _generateQuoteService: AppraisalQuoteService,private router: Router ) {
+  constructor(private route: ActivatedRoute, private _generateQuoteService: AppraisalQuoteService,private router: Router, private loggingService:LoggingService) {
   }
   public AppraisalModel: appraisalDetails;
   appraisalvalue: string;
@@ -25,7 +26,7 @@ export class AppraisalQuoteComponent implements OnInit {
         this.AppraisalModel = data;
         console.log('Service response');
         console.log(this.AppraisalModel);
-
+        this.loggingService.logReqResp(' getDetails request in real state:', JSON.stringify(data)).subscribe();
       }
     );
   }
@@ -37,18 +38,19 @@ export class AppraisalQuoteComponent implements OnInit {
       appraisalValue: this.AppraisalModel[0].AppraisalValue, customerName: this.AppraisalModel[0].Name
     }).subscribe(data => {
       console.log(data);
-      Swal.fire({
-        title: 'saved successfully',
-        type: 'success',
-        confirmButtonText: 'OK',
-        onClose: () => {
-          this.router.navigate(['pendingrequest']);
-        }
-      });
+   
     });
     this._generateQuoteService.updateAppraisalDetails({ AppraisalValue: this.appraisalvalue, MortID: this.AppraisalModel[0].MortID }
     ).subscribe(data => {
       console.log(data);
-    })
+    });
+    Swal.fire({
+      title: 'saved successfully',
+      type: 'success',
+      confirmButtonText: 'OK',
+      onClose: () => {
+        this.router.navigate(['pendingrequest']);
+      }
+    });
   }
 }

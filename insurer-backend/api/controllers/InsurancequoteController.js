@@ -20,14 +20,13 @@ insertInsuranceDetails: function(req, res)
         status:'Pending' 
     };
 Insurancequote.create(values)
-.fetch()
 .exec(function(err,insuranceDetails){
     if (err)
     {
         res.json(err);
     }
     return res.json(insuranceDetails);
-})
+});
 },
 fetchAllPendingRequest : function (req, res)
 {

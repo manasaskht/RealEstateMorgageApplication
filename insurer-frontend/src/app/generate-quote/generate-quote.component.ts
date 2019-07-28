@@ -13,7 +13,7 @@ import { LoggingService } from '../Common/logging.service';
 })
 export class GenerateQuoteComponent implements OnInit {
 
-  constructor(private route: ActivatedRoute, private _generateQuoteService : GenerateQuoteService,private loggingService: LoggingService,private redirect: Router) 
+  constructor(private route: ActivatedRoute, private _generateQuoteService : GenerateQuoteService,private loggingService: LoggingService,private rte: Router) 
   {
 
   }
@@ -46,19 +46,21 @@ export class GenerateQuoteComponent implements OnInit {
       ).subscribe(data =>
         {
           console.log(data);
-          Swal.fire({
-            title: 'saved successfully',
-            type: 'success',
-            confirmButtonText: 'OK',
-            onClose: () => {
-              this.redirect.navigate(['pendingrequest']);
-            }
-          });
-          this.redirect.navigate(['pendingrequest']);
-          //this.loggingService.logReqResp('updateInsuranceDetails request:', JSON.stringify(data)).subscribe();
+          console.log('update method entered');
+       
+          this.loggingService.logReqResp('updateInsuranceDetails request:', JSON.stringify(data)).subscribe();
 
         },err=>{
-          //this.loggingService.logReqResp('Error in updateInsuranceDetails request:', JSON.stringify(err)).subscribe();
-        })
+          this.loggingService.logReqResp('Error in updateInsuranceDetails request:', JSON.stringify(err)).subscribe();
+        });
+        Swal.fire({
+          title: 'Insured and Deductible amount updated successfully',
+          type: 'success',
+          confirmButtonText: 'OK',
+          onClose: () => {
+            this.rte.navigate(['pendingrequest']);
+          }
+        });
+        //this.rte.navigate(['pendingrequest']);
   }
 }
