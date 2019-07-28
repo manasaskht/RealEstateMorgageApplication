@@ -36,6 +36,19 @@ module.exports = {
           if (error) {
             return console.error('Error occurred while updating insurance information', error);
           }
+
+          var getUserEmailReq = {
+            method: 'POST',
+            uri: req.baseUrl + '/api/getUserEmail',
+            body: {
+            appId: insInfo.mortgageAppId
+            },
+            json: true
+          } 
+          request(getUserEmailReq, function (emailRetrieveError, emailRes, emailResBody) {
+            if (emailRetrieveError) {
+              console.error('Error occurred while retrieving user email. Mail will not be sent!', error);
+            }
           var logicAppReq = {
             method: 'POST',
             uri: 'https://prod-27.canadaeast.logic.azure.com:443/workflows/698c09f11b714203bda7044c3398b4ce/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=rX_UNs8SgoR9SIoVHvVR9Tq0eHX0TJDDeUcKok1GDDs',
@@ -48,8 +61,8 @@ module.exports = {
             insuredValue: insInfo.insuredValue,
             deductibleValue: insInfo.deductibleValue,
             insuranceInfoID: insInfo.id,
-            email: req.body.email_id,
-            postbackUrl: req.baseUrl
+            email: emailResBody.email,
+            postbackUrl: "http://35.202.110.53:1337"
             },
             json: true
           };
@@ -60,6 +73,8 @@ module.exports = {
           });
           console.log('Insurance information updated successfully:', body);
         });
+        });
+
         return res.json(insInfo);
       });
 

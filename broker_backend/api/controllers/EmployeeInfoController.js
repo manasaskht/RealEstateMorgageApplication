@@ -61,8 +61,8 @@ module.exports = {
           insuredValue: 0,
           deductibleValue: 0,
           insuranceInfoID: 0,
-          email: req.body.email_id,
-          postbackUrl: req.baseUrl
+          email: req.body.emailId,
+          postbackUrl: "http://35.202.110.53:1337"
           },
           json: true
         };

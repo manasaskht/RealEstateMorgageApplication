@@ -35,7 +35,7 @@ export class AppraisalQuoteComponent implements OnInit {
     console.log(this.AppraisalModel);
     this._generateQuoteService.sendAppraisalDetailsToInsurer({
       MortID: this.AppraisalModel[0].MortID, MisId: this.AppraisalModel[0].M1sID,
-      appraisalValue: this.AppraisalModel[0].AppraisalValue, customerName: this.AppraisalModel[0].Name
+      appraisalValue: this.appraisalvalue, customerName: this.AppraisalModel[0].Name
     }).subscribe(data => {
       console.log(data);
    

@@ -129,5 +129,17 @@ updateEmployeeInfoReference: function (req, res) {
       }
       return res.send("Success");
     });
-  }
+  },
+getUserEmailByMortAppId: function (req, res) {
+  var appId = req.body.appId;
+  Mortgage.findOne({ id: appId }).then((login) => {
+    if (!login) {
+      return res.notFound();
+    }
+    return res.json({email: login.email_id});
+  })
+    .catch((err) => {
+      return res.serverError(err);
+    });
+}
 };

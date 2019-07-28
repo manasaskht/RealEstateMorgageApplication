@@ -32,6 +32,7 @@ module.exports.routes = {
   'get /api/mortgageapplications': 'MortgageController.fetchMortgageApplications',
   'post /api/updateEmployeeInfoReference': 'MortgageController.updateEmployeeInfoReference',
   'post /api/updateInsuranceInfoReference': 'MortgageController.updateInsuranceInfoReference',
+  'post /api/getUserEmail': 'MortgageController.getUserEmailByMortAppId',
   'post /api/logreqres': 'RequestresponselogController.logReqRes',
   'post /api/insuranceInfo': 'InsuranceInfoController.create',
   'post /api/updateEmployeeInfo': 'EmployeeInfoController.updateEmployeeInfo',
