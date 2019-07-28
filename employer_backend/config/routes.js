@@ -9,6 +9,9 @@
  */
 
 module.exports.routes = {
+  //Health check for GCE
+  'get /_ah/health': 'EmployeeController.health',
+
   "get /api/employee/create": "EmployeeController.create",
   "get /api/employees": "EmployeeController.getAllEmployees",
 

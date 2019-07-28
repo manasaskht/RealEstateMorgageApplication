@@ -66,11 +66,11 @@ export class MorgageApplicationFormComponent implements OnInit {
     this.mortgageApplicationService.sendApplication(applicant)
       .subscribe(data => {
           console.log(data);
-          this.loggingService.logReqResp('Mortgage create: ' + JSON.stringify(applicant), JSON.stringify(data)).subscribe();
+          this.loggingService.logReqResp('MBR: Mortgage application post request: ' + JSON.stringify(applicant), JSON.stringify(data)).subscribe();
           //Source: https://sweetalert2.github.io/#examples
           Swal.fire({
             title: 'Application form submitted successfully!',
-            text: 'Your application id is: ' + data["id"],
+            text: 'Your mortgage application id is: ' + data["id"],
             type: 'success',
             confirmButtonText: 'OK',
             onClose: () => {
@@ -80,7 +80,7 @@ export class MorgageApplicationFormComponent implements OnInit {
         },
         err => {
           console.log(err);
-          this.loggingService.logReqResp('Mortgage create: ' + JSON.stringify(applicant), JSON.stringify(err)).subscribe();
+          this.loggingService.logReqResp('MBR: Mortgage application post request: ' + JSON.stringify(applicant), JSON.stringify(err)).subscribe();
           Swal.fire({
             title: 'Error!',
             text: 'There was an error. Please, try again later.',

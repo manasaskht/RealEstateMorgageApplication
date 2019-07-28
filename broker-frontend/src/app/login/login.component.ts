@@ -33,7 +33,7 @@ export class LoginComponent implements OnInit {
           this.showErrorMsg = true;
           this.errorMsg = 'Invalid credentials !!!';
         }
-        this.loggingService.logReqResp('ValidateUser: Username - ' + this.username + ' password - ' +
+        this.loggingService.logReqResp('MBR: ValidateUser: Username - ' + this.username + ' password - ' +
                                         this.password, JSON.stringify(x)).subscribe();
       });
     } else {

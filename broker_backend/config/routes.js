@@ -21,6 +21,7 @@ module.exports.routes = {
 
   '/': {view: 'pages/homepage'},
 
+  'get /_ah/health': 'EmployeeController.health',
   'get /api/employee/create': 'EmployeeController.create',
   'get /api/employees': 'EmployeeController.getAllEmployees',
   "post /api/validateUser": "LoginController.validateLogin",

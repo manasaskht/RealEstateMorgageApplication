@@ -3,6 +3,7 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {MortgageForm} from './MortgageAppln.service';
 import {Router} from "@angular/router";
 import Swal from 'sweetalert2';
+import { LoggingService } from '../employer-login/common/logging.service';
 
 @Component({
   selector: 'app-Mortgage-Form',
@@ -15,7 +16,8 @@ export class MortgageFormComponent implements OnInit {
   submitted = false;
   employeeID;
 
-  constructor(private formBuilder: FormBuilder, public mortgageService: MortgageForm, public router: Router) {
+  constructor(private formBuilder: FormBuilder, public mortgageService: MortgageForm, public router: Router,
+              public loggingService: LoggingService) {
   }
 
   ngOnInit() {
@@ -49,7 +51,8 @@ export class MortgageFormComponent implements OnInit {
 
     this.mortgageService.getEmployeeDetails(Mortgage)
       .subscribe(data => {
-console.log(Mortgage.applicationID);
+      console.log(Mortgage.applicationID);
+      this.loggingService.logReqResp('EMP: Send employee information request: ' + JSON.stringify(Mortgage), JSON.stringify(data)).subscribe();
           //Source: https://sweetalert2.github.io/#examples
           Swal.fire({
             title: 'submitted form successfully',
@@ -62,6 +65,7 @@ console.log(Mortgage.applicationID);
         },
         err => {
           console.log(err);
+          this.loggingService.logReqResp('EMP: Send employee information request: ' + JSON.stringify(Mortgage), JSON.stringify(err)).subscribe();
           Swal.fire({
             title: 'Error!',
             text: 'System error!! , please try again.',

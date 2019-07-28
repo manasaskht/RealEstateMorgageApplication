@@ -21,6 +21,9 @@ module.exports.routes = {
 
   '/': { view: 'pages/homepage' },
 
+  //Health check for GCE
+  'get /_ah/health': 'LoginController.health',
+
   //Route to create an insurer
   "post /api/insurer/signup": "LoginController.signup",
 

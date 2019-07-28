@@ -11,7 +11,7 @@ var bcrypt = require("bcryptjs");
 
 module.exports = {
   //This function is just to test authentication
-  test: function(req, res) {
+  test: function (req, res) {
     var temp = "Test";
     res.send({
       temp
@@ -19,18 +19,18 @@ module.exports = {
   },
 
   //This function is to create a user
-  signup: function(req, res) {
+  signup: function (req, res) {
     //Requires insurerID and password
     var values = {
       insurerid: req.body.insurerid,
       password: req.body.password,
-      emailId:req.body.emailId,
-      firstName:req.body.firstName,
-      lastName:req.body.lastName
+      emailId: req.body.emailId,
+      firstName: req.body.firstName,
+      lastName: req.body.lastName
     };
 
     //creates an insurer
-    Login.create(values).exec(function(err, broker) {
+    Login.create(values).exec(function (err, broker) {
       if (err) {
         return res.json(err);
       }
@@ -39,7 +39,7 @@ module.exports = {
   },
 
   //login to the system
-  login: function(req, res) {
+  login: function (req, res) {
     //check if both params are provided
     if (!_.has(req.body, "insurerid") || !_.has(req.body, "password")) {
       return res.serverError("The required details are not provided");
@@ -53,7 +53,7 @@ module.exports = {
       if (!user) return res.serverError("insurer not found");
 
       //check password matches or not
-      bcrypt.compare(req.body.password, user.password, function(
+      bcrypt.compare(req.body.password, user.password, function (
         error,
         matched
       ) {
@@ -74,5 +74,9 @@ module.exports = {
         res.ok(token);
       });
     });
+  },
+
+  health: function (req, res) {
+    return res.status(200).send('ok');
   }
 };
